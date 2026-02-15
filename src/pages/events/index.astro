@@ -1,0 +1,28 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import EventCard from '../../components/EventCard.astro';
+
+const events = await getCollection('events');
+// Sort events by date (upcoming first)
+const sortedEvents = events.sort((a, b) => new Date(a.data.date).getTime() - new Date(b.data.date).getTime());
+---
+
+<Layout title="Events" description="Upcoming concerts, rehearsals, and play days for Sevenoaks Saxes.">
+  <div class="mb-12">
+    <h1 class="text-4xl font-serif font-bold mb-4">Upcoming Events</h1>
+    <p class="text-lg text-gray-600">Stay up to date with our performances, rehearsals, and workshops.</p>
+  </div>
+
+  <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+    {sortedEvents.map(event => (
+      <EventCard event={event} />
+    ))}
+  </div>
+
+  {events.length === 0 && (
+    <div class="text-center py-12">
+      <p class="text-gray-500">No upcoming events at the moment. Please check back later!</p>
+    </div>
+  )}
+</Layout>
