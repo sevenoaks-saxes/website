@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { getEntry, render } from 'astro:content';
 
-const entry = await getEntry('pages', 'home');
+const entry = await getEntry('pages', 'contact');
 
 if (!entry) {
   return Astro.redirect('/404');
