@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
 import { getEntry, render } from 'astro:content';
 
 const entry = await getEntry('pages', 'home');
@@ -12,9 +13,9 @@ const { Content } = await render(entry);
 ---
 
 <Layout title={entry.data.title} description={entry.data.description}>
-  <div class="prose-container">
+  <Hero />
+  <div class="prose-container py-16 md:py-24">
     <div class="prose prose-lg max-w-none prose-p:leading-relaxed prose-headings:font-serif prose-headings:font-normal prose-headings:text-heritage-currant">
-      <h1>{entry.data.title}</h1>
       <Content />
 
       <h2>Artistic Excellence & Community</h2>

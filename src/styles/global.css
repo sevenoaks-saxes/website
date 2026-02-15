@@ -11,12 +11,9 @@
 
   --color-sage-ash: #5B6D5B;
   --color-sage-ash-hover: #4a594a;
-  --color-sage-ash-soft: #f2f4f2;
 
   --color-mist-blue: #7EACB5;
   --color-mist-blue-hover: #6a969f;
-  --color-mist-blue-dark: #436066;
-  --color-mist-blue-soft: #f2f7f8;
 
   --color-graphite: #222222;
   --color-graphite-muted: #666666;
@@ -29,12 +26,12 @@
   --tw-prose-lead: var(--color-graphite-muted);
   --tw-prose-links: var(--color-heritage-currant);
   --tw-prose-bold: var(--color-graphite);
-  --tw-prose-counters: var(--color-sage-ash);
-  --tw-prose-bullets: var(--color-sage-ash);
+  --tw-prose-counters: var(--color-graphite-muted);
+  --tw-prose-bullets: var(--color-graphite-muted);
   --tw-prose-hr: var(--color-graphite-soft);
   --tw-prose-quotes: var(--color-graphite);
   --tw-prose-quote-borders: var(--color-heritage-currant);
-  --tw-prose-captions: var(--color-sage-ash);
+  --tw-prose-captions: var(--color-graphite-muted);
   --tw-prose-code: var(--color-graphite);
   --tw-prose-pre-code: white;
   --tw-prose-pre-bg: var(--color-graphite);
@@ -51,7 +48,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  @apply text-4xl leading-tight mb-12;
+  @apply text-[2.5rem] leading-[1.1] mb-12;
 }
 
 h2 {
@@ -67,5 +64,5 @@ p {
 }
 
 .prose-container {
-  @apply max-w-3xl mx-auto;
+  @apply max-w-3xl mx-auto px-4;
 }
