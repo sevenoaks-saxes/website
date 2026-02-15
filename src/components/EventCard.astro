@@ -10,33 +10,33 @@ const formattedDate = new Date(date).toLocaleDateString('en-GB', {
 });
 
 const typeColors = {
-  concert: 'bg-purple-100 text-purple-800',
-  rehearsal: 'bg-blue-100 text-blue-800',
-  'play day': 'bg-green-100 text-green-800',
-  other: 'bg-gray-100 text-gray-800',
+  concert: 'bg-brand-red text-brand-cream',
+  rehearsal: 'bg-brand-mist-soft text-brand-mist-dark',
+  'play day': 'bg-brand-leaf-soft text-brand-leaf-dark',
+  other: 'bg-brand-charcoal-soft text-brand-charcoal',
 };
 ---
 
-<div class="flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-shadow hover:shadow-md">
+<div class="flex flex-col overflow-hidden rounded-lg border border-brand-mist-border bg-brand-cream-hover shadow-sm transition-all hover:shadow-md hover:-translate-y-1">
   <div class="p-6">
-    <div class="flex items-center justify-between mb-2">
-      <span class={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${typeColors[type] || typeColors.other}`}>
-        {type.charAt(0).toUpperCase() + type.slice(1)}
+    <div class="flex items-center justify-between mb-4">
+      <span class={`inline-flex items-center rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider ${typeColors[type] || typeColors.other}`}>
+        {type}
       </span>
-      <span class="text-sm text-gray-500">{time}</span>
+      <span class="text-sm font-medium text-brand-charcoal-muted">{time}</span>
     </div>
-    <h3 class="text-xl font-bold font-serif mb-2">
-      <a href={`/events/${event.id}`} class="hover:text-purple-600">
+    <h3 class="text-xl font-bold mb-2">
+      <a href={`/events/${event.id}`} class="hover:text-brand-red transition-colors">
         {name}
       </a>
     </h3>
-    <p class="text-sm font-medium text-gray-600 mb-2">{formattedDate}</p>
-    <p class="text-sm text-gray-500 mb-4">{location}</p>
-    <p class="text-gray-700 line-clamp-3">{description}</p>
+    <p class="text-sm font-semibold text-brand-mist-dark mb-2">{formattedDate}</p>
+    <p class="text-sm text-brand-charcoal-muted mb-4">{location}</p>
+    <p class="text-brand-charcoal line-clamp-3 leading-relaxed">{description}</p>
   </div>
-  <div class="bg-gray-50 px-6 py-3 border-t border-gray-200">
-    <a href={`/events/${event.id}`} class="text-sm font-semibold text-purple-600 hover:text-purple-500">
-      View details &rarr;
+  <div class="bg-brand-cream-dark px-6 py-4 border-t border-brand-mist-border mt-auto">
+    <a href={`/events/${event.id}`} class="text-sm font-bold text-brand-red hover:text-brand-red-hover transition-colors inline-flex items-center">
+      View details <span class="ml-1">&rarr;</span>
     </a>
   </div>
 </div>
