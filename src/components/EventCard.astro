@@ -10,7 +10,7 @@ const formattedDate = new Date(date).toLocaleDateString('en-GB', {
 });
 
 const typeColors = {
-  concert: 'text-opera-madder border-opera-madder/20 bg-opera-madder-soft',
+  concert: 'text-heritage-currant border-heritage-currant/20 bg-heritage-currant-soft',
   rehearsal: 'text-sage-ash border-sage-ash/20 bg-sage-ash-soft',
   'play day': 'text-mist-blue-dark border-mist-blue/20 bg-mist-blue-soft',
   other: 'text-graphite border-graphite/20 bg-graphite-soft',
@@ -25,7 +25,7 @@ const typeColors = {
       </span>
       <span class="text-xs font-semibold text-graphite/40 uppercase tracking-widest">{time}</span>
     </div>
-    <h3 class="text-2xl font-serif font-normal mb-4 text-opera-madder group-hover:text-opera-madder-hover transition-colors leading-tight">
+    <h3 class="text-2xl font-serif font-normal mb-4 text-heritage-currant group-hover:text-heritage-currant-hover transition-colors leading-tight">
       <a href={`/events/${event.id}`}>
         {name}
       </a>
@@ -35,7 +35,7 @@ const typeColors = {
     <p class="text-graphite/80 line-clamp-3 leading-relaxed text-sm">{description}</p>
   </div>
   <div class="px-8 pb-8 mt-auto">
-    <a href={`/events/${event.id}`} class="text-[11px] font-bold text-graphite uppercase tracking-[0.2em] hover:text-opera-madder transition-colors inline-flex items-center border-b border-graphite/10 pb-1">
+    <a href={`/events/${event.id}`} class="text-[11px] font-bold text-graphite uppercase tracking-[0.2em] hover:text-heritage-currant transition-colors inline-flex items-center border-b border-graphite/10 pb-1">
       Explore Event
     </a>
   </div>

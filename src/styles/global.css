@@ -5,9 +5,9 @@
   --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-serif: "Young Serif", serif;
 
-  --color-opera-madder: #9B1B1B;
-  --color-opera-madder-hover: #7a1515;
-  --color-opera-madder-soft: #fcf1f1;
+  --color-heritage-currant: #9B1B1B;
+  --color-heritage-currant-hover: #7a1515;
+  --color-heritage-currant-soft: #fcf1f1;
 
   --color-sage-ash: #5B6D5B;
   --color-sage-ash-hover: #4a594a;
@@ -19,21 +19,21 @@
   --color-mist-blue-soft: #f2f7f8;
 
   --color-graphite: #222222;
-  --color-graphite-muted: #555555;
-  --color-graphite-soft: #eeeeee;
+  --color-graphite-muted: #666666;
+  --color-graphite-soft: #f5f5f5;
 }
 
 :root {
   --tw-prose-body: var(--color-graphite);
-  --tw-prose-headings: var(--color-opera-madder);
+  --tw-prose-headings: var(--color-heritage-currant);
   --tw-prose-lead: var(--color-graphite-muted);
-  --tw-prose-links: var(--color-opera-madder);
+  --tw-prose-links: var(--color-heritage-currant);
   --tw-prose-bold: var(--color-graphite);
   --tw-prose-counters: var(--color-sage-ash);
   --tw-prose-bullets: var(--color-sage-ash);
   --tw-prose-hr: var(--color-graphite-soft);
   --tw-prose-quotes: var(--color-graphite);
-  --tw-prose-quote-borders: var(--color-opera-madder);
+  --tw-prose-quote-borders: var(--color-heritage-currant);
   --tw-prose-captions: var(--color-sage-ash);
   --tw-prose-code: var(--color-graphite);
   --tw-prose-pre-code: white;
@@ -47,11 +47,11 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  @apply font-serif font-normal text-opera-madder tracking-tight;
+  @apply font-serif font-normal text-heritage-currant tracking-tight;
 }
 
 h1 {
-  @apply text-[2.5rem] leading-[1.1] mb-12;
+  @apply text-4xl leading-tight mb-12;
 }
 
 h2 {
@@ -63,9 +63,9 @@ h3 {
 }
 
 p {
-  @apply mb-6 leading-[1.6];
+  @apply mb-6 text-base leading-relaxed;
 }
 
 .prose-container {
-  @apply max-w-(--breakpoint-md) mx-auto;
+  @apply max-w-3xl mx-auto;
 }
