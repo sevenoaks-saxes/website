@@ -12,8 +12,18 @@ const { Content } = await render(entry);
 ---
 
 <Layout title={entry.data.title} description={entry.data.description}>
-  <div class="prose prose-lg max-w-none">
-    <h1>{entry.data.title}</h1>
-    <Content />
+  <div class="prose-container">
+    <div class="prose prose-lg max-w-none prose-p:leading-relaxed prose-headings:font-serif prose-headings:font-normal prose-headings:text-opera-madder">
+      <h1>{entry.data.title}</h1>
+      <Content />
+
+      <h2>Data Protection</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id interdum nibh. Etiam ac mi in justo pretium elementum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris accumsan fermentum magna, ac condimentum odio. Sed sodales diam at turpis lacinia, ac accumsan lectus venenatis.
+      </p>
+      <p>
+        Nam vel lorem ac ante laoreet aliquet. Quisque ac magna non nisi porttitor scelerisque ac id lectus. Cras nec dui a lorem pretium mollis. In sit amet sem ac erat faucibus pretium. Vestibulum vitae vehicula sem. Sed euismod, leo ut mattis consequat, nisi nisi elementum nisl, non hendrerit nulla dui id dui.
+      </p>
+    </div>
   </div>
 </Layout>

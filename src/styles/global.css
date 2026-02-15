@@ -3,61 +3,69 @@
 
 @theme {
   --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-serif: "Instrument Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-serif: "Young Serif", serif;
 
-  --color-brand-red: #A82323;
-  --color-brand-red-hover: #8e1d1d;
-  --color-brand-red-soft: #f9e9e9;
+  --color-opera-madder: #9B1B1B;
+  --color-opera-madder-hover: #7a1515;
+  --color-opera-madder-soft: #fcf1f1;
 
-  --color-brand-leaf: #6D9E51;
-  --color-brand-leaf-hover: #5d8745;
-  --color-brand-leaf-dark: #3d592d;
-  --color-brand-leaf-soft: #f0f5ed;
+  --color-sage-ash: #5B6D5B;
+  --color-sage-ash-hover: #4a594a;
+  --color-sage-ash-soft: #f2f4f2;
 
-  --color-brand-mist: #7EACB5;
-  --color-brand-mist-hover: #6a969f;
-  --color-brand-mist-dark: #436066;
-  --color-brand-mist-soft: #f2f7f8;
-  --color-brand-mist-border: #cedfe3;
+  --color-mist-blue: #7EACB5;
+  --color-mist-blue-hover: #6a969f;
+  --color-mist-blue-dark: #436066;
+  --color-mist-blue-soft: #f2f7f8;
 
-  --color-brand-cream: #FDFBF7;
-  --color-brand-cream-hover: #f7f2e8;
-
-  --color-brand-charcoal: #333333;
-  --color-brand-charcoal-hover: #262626;
-  --color-brand-charcoal-muted: #666666;
-  --color-brand-charcoal-soft: #e6e6e6;
+  --color-graphite: #222222;
+  --color-graphite-muted: #555555;
+  --color-graphite-soft: #eeeeee;
 }
 
 :root {
-  --tw-prose-body: var(--color-brand-charcoal);
-  --tw-prose-headings: var(--color-brand-charcoal);
-  --tw-prose-lead: var(--color-brand-charcoal-muted);
-  --tw-prose-links: var(--color-brand-red);
-  --tw-prose-bold: var(--color-brand-charcoal);
-  --tw-prose-counters: var(--color-brand-mist);
-  --tw-prose-bullets: var(--color-brand-mist);
-  --tw-prose-hr: var(--color-brand-mist-border);
-  --tw-prose-quotes: var(--color-brand-charcoal);
-  --tw-prose-quote-borders: var(--color-brand-red);
-  --tw-prose-captions: var(--color-brand-mist);
-  --tw-prose-code: var(--color-brand-charcoal);
-  --tw-prose-pre-code: var(--color-brand-cream);
-  --tw-prose-pre-bg: var(--color-brand-charcoal);
-  --tw-prose-th-borders: var(--color-brand-mist-border);
-  --tw-prose-td-borders: var(--color-brand-mist-soft);
+  --tw-prose-body: var(--color-graphite);
+  --tw-prose-headings: var(--color-opera-madder);
+  --tw-prose-lead: var(--color-graphite-muted);
+  --tw-prose-links: var(--color-opera-madder);
+  --tw-prose-bold: var(--color-graphite);
+  --tw-prose-counters: var(--color-sage-ash);
+  --tw-prose-bullets: var(--color-sage-ash);
+  --tw-prose-hr: var(--color-graphite-soft);
+  --tw-prose-quotes: var(--color-graphite);
+  --tw-prose-quote-borders: var(--color-opera-madder);
+  --tw-prose-captions: var(--color-sage-ash);
+  --tw-prose-code: var(--color-graphite);
+  --tw-prose-pre-code: white;
+  --tw-prose-pre-bg: var(--color-graphite);
+  --tw-prose-th-borders: var(--color-graphite-soft);
+  --tw-prose-td-borders: var(--color-graphite-soft);
 }
 
 body {
-  @apply font-sans antialiased text-brand-charcoal bg-brand-cream;
+  @apply font-sans antialiased text-graphite bg-white;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  @apply font-sans font-bold text-brand-charcoal tracking-tight;
+  @apply font-serif font-normal text-opera-madder tracking-tight;
 }
 
-h1 { @apply text-4xl sm:text-5xl lg:text-6xl mb-8; }
-h2 { @apply text-3xl sm:text-4xl mb-6; }
-h3 { @apply text-2xl sm:text-3xl mb-4; }
-h4 { @apply text-xl sm:text-2xl mb-3; }
-p { @apply mb-4 leading-relaxed; }
+h1 {
+  @apply text-[2.5rem] leading-[1.1] mb-12;
+}
+
+h2 {
+  @apply text-3xl mt-16 mb-8;
+}
+
+h3 {
+  @apply text-2xl mt-12 mb-6;
+}
+
+p {
+  @apply mb-6 leading-[1.6];
+}
+
+.prose-container {
+  @apply max-w-(--breakpoint-md) mx-auto;
+}

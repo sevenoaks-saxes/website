@@ -3,15 +3,14 @@ import Layout from '../../layouts/Layout.astro';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
-  const subPages = ['our-groups', 'play-days', 'our-conductor', 'our-patron'];
   const pages = await getCollection('pages');
+  // Filter for about subpages
+  const aboutPages = pages.filter(page => page.id.startsWith('about/'));
 
-  return pages
-    .filter(page => subPages.includes(page.id))
-    .map(page => ({
-      params: { slug: page.id },
-      props: { page },
-    }));
+  return aboutPages.map(page => ({
+    params: { slug: page.id.replace('about/', '') },
+    props: { page },
+  }));
 }
 
 const { page } = Astro.props;
@@ -19,8 +18,18 @@ const { Content } = await render(page);
 ---
 
 <Layout title={page.data.title} description={page.data.description}>
-  <div class="prose prose-lg max-w-none">
-    <h1>{page.data.title}</h1>
-    <Content />
+  <div class="prose-container">
+    <div class="prose prose-lg max-w-none prose-p:leading-relaxed prose-headings:font-serif prose-headings:font-normal prose-headings:text-opera-madder">
+      <h1>{page.data.title}</h1>
+      <Content />
+
+      <h2>Detailed Insight</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id interdum nibh. Etiam ac mi in justo pretium elementum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris accumsan fermentum magna, ac condimentum odio. Sed sodales diam at turpis lacinia, ac accumsan lectus venenatis.
+      </p>
+      <p>
+        Nam vel lorem ac ante laoreet aliquet. Quisque ac magna non nisi porttitor scelerisque ac id lectus. Cras nec dui a lorem pretium mollis. In sit amet sem ac erat faucibus pretium. Vestibulum vitae vehicula sem. Sed euismod, leo ut mattis consequat, nisi nisi elementum nisl, non hendrerit nulla dui id dui.
+      </p>
+    </div>
   </div>
 </Layout>
