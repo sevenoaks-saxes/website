@@ -1,11 +1,11 @@
 ---
-title: Privacy Notice
-description: How we handle your data.
+title: Our Conductor
+description: Meet the person leading Sevenoaks Saxes.
 ---
 
-Sevenoaks Saxes is committed to protecting your privacy. This notice explains how we collect and use your personal information.
+Our conductor brings years of experience and a passion for saxophone music to every rehearsal. They lead with energy and a commitment to musical excellence.
 
-## Data Protection
+## Detailed Insight
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id interdum nibh. Etiam ac mi in justo pretium elementum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris accumsan fermentum magna, ac condimentum odio. Sed sodales diam at turpis lacinia, ac accumsan lectus venenatis.
 

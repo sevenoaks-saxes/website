@@ -1,11 +1,11 @@
 ---
-title: Privacy Notice
-description: How we handle your data.
+title: Our Patron
+description: We are honored to have the support of our patron.
 ---
 
-Sevenoaks Saxes is committed to protecting your privacy. This notice explains how we collect and use your personal information.
+Sevenoaks Saxes is proud to be supported by our distinguished patron, a well-known figure in the world of saxophone music.
 
-## Data Protection
+## Detailed Insight
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id interdum nibh. Etiam ac mi in justo pretium elementum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris accumsan fermentum magna, ac condimentum odio. Sed sodales diam at turpis lacinia, ac accumsan lectus venenatis.
 

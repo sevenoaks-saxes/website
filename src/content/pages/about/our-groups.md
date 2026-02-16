@@ -1,11 +1,15 @@
 ---
-title: Privacy Notice
-description: How we handle your data.
+title: Our Groups
+description: Information about the different saxophone groups we have.
 ---
 
-Sevenoaks Saxes is committed to protecting your privacy. This notice explains how we collect and use your personal information.
+We have several groups catering to different levels of experience:
 
-## Data Protection
+- **The Main Ensemble:** Our largest group, performing a broad repertoire.
+- **The Sax Quartet:** A smaller, more focused group for advanced players.
+- **Training Group:** Perfect for those newer to the saxophone or returning after a break.
+
+## Detailed Insight
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id interdum nibh. Etiam ac mi in justo pretium elementum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris accumsan fermentum magna, ac condimentum odio. Sed sodales diam at turpis lacinia, ac accumsan lectus venenatis.
 

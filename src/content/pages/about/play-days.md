@@ -1,11 +1,11 @@
 ---
-title: Privacy Notice
-description: How we handle your data.
+title: Play Days
+description: Special days dedicated to playing and learning.
 ---
 
-Sevenoaks Saxes is committed to protecting your privacy. This notice explains how we collect and use your personal information.
+Our Play Days are intensive, fun-filled sessions where we focus on a specific theme or genre. These are open to both members and non-members.
 
-## Data Protection
+## Detailed Insight
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id interdum nibh. Etiam ac mi in justo pretium elementum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris accumsan fermentum magna, ac condimentum odio. Sed sodales diam at turpis lacinia, ac accumsan lectus venenatis.
 

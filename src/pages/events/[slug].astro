@@ -19,42 +19,49 @@ const formattedDate = new Date(event.data.date).toLocaleDateString('en-GB', {
   month: 'long',
   day: 'numeric',
 });
+
+const typeColors = {
+  concert: 'text-heritage-currant border-heritage-currant/20 bg-heritage-currant-soft',
+  rehearsal: 'text-sage-ash border-sage-ash/20 bg-sage-ash-soft',
+  'play day': 'text-mist-blue-dark border-mist-blue/20 bg-mist-blue-soft',
+  other: 'text-graphite border-graphite/20 bg-graphite-soft',
+};
 ---
 
 <Layout title={event.data.name} description={event.data.description}>
-  <div class="max-w-3xl mx-auto">
-    <a href="/events" class="inline-flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 mb-8 transition-colors">
-      <svg class="mr-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <div class="prose-container py-12 md:py-20">
+    <a href="/events" class="inline-flex items-center text-[11px] font-bold text-graphite/40 hover:text-heritage-currant mb-12 transition-colors uppercase tracking-[0.2em]">
+      <svg class="mr-2 h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
       </svg>
-      Back to events
+      Return to events
     </a>
 
-    <header class="mb-8">
-      <div class="flex items-center space-x-2 mb-4">
-        <span class="inline-flex items-center rounded-full bg-purple-100 px-2.5 py-0.5 text-xs font-medium text-purple-800">
+    <header class="mb-16">
+      <div class="flex items-center space-x-2 mb-8">
+        <span class={`inline-flex items-center px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] border ${typeColors[event.data.type] || typeColors.other}`}>
           {event.data.type}
         </span>
       </div>
-      <h1 class="text-4xl font-serif font-bold mb-4">{event.data.name}</h1>
+      <h1 class="mb-12">{event.data.name}</h1>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-gray-50 p-6 rounded-lg border border-gray-100">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-12 bg-graphite-soft/30 p-12 rounded-sm border border-graphite/5">
         <div>
-          <h2 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Date</h2>
-          <p class="text-gray-900">{formattedDate}</p>
+          <h2 class="text-[10px] font-bold text-sage-ash uppercase tracking-[0.2em] mb-4 mt-0">Date</h2>
+          <p class="text-lg text-graphite font-serif">{formattedDate}</p>
         </div>
         <div>
-          <h2 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Time</h2>
-          <p class="text-gray-900">{event.data.time}</p>
+          <h2 class="text-[10px] font-bold text-sage-ash uppercase tracking-[0.2em] mb-4 mt-0">Time</h2>
+          <p class="text-lg text-graphite font-serif">{event.data.time}</p>
         </div>
         <div class="sm:col-span-2">
-          <h2 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Location</h2>
-          <p class="text-gray-900">{event.data.location}</p>
+          <h2 class="text-[10px] font-bold text-sage-ash uppercase tracking-[0.2em] mb-4 mt-0">Location</h2>
+          <p class="text-lg text-graphite font-serif">{event.data.location}</p>
         </div>
       </div>
     </header>
 
-    <div class="prose prose-lg max-w-none prose-headings:font-serif">
+    <div class="prose prose-lg max-w-none prose-p:leading-relaxed prose-headings:font-serif prose-headings:font-normal prose-headings:text-heritage-currant">
       <Content />
     </div>
   </div>

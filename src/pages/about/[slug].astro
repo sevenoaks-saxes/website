@@ -3,15 +3,14 @@ import Layout from '../../layouts/Layout.astro';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
-  const subPages = ['our-groups', 'play-days', 'our-conductor', 'our-patron'];
   const pages = await getCollection('pages');
+  // Filter for about subpages
+  const aboutPages = pages.filter(page => page.id.startsWith('about/'));
 
-  return pages
-    .filter(page => subPages.includes(page.id))
-    .map(page => ({
-      params: { slug: page.id },
-      props: { page },
-    }));
+  return aboutPages.map(page => ({
+    params: { slug: page.id.replace('about/', '') },
+    props: { page },
+  }));
 }
 
 const { page } = Astro.props;
@@ -19,8 +18,10 @@ const { Content } = await render(page);
 ---
 
 <Layout title={page.data.title} description={page.data.description}>
-  <div class="prose prose-lg max-w-none prose-headings:font-serif">
-    <h1>{page.data.title}</h1>
-    <Content />
+  <div class="prose-container py-12 md:py-20">
+    <div class="prose prose-lg max-w-none prose-p:leading-relaxed prose-headings:font-serif prose-headings:font-normal prose-headings:text-heritage-currant">
+      <h1>{page.data.title}</h1>
+      <Content />
+    </div>
   </div>
 </Layout>
