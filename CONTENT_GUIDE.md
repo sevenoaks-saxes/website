@@ -2,10 +2,6 @@
 
 This guide is for anyone who needs to update the text, events, or pages on the Sevenoaks Saxes website. You don't need to know how to code to make these changes, but you will need to edit **Markdown** files.
 
-## Important: No Emojis
-
-Please do not use emojis anywhere in the website content (page text, event descriptions, or settings).
-
 ## Where is the Content?
 
 All website content is located in the `src/content/` folder:
