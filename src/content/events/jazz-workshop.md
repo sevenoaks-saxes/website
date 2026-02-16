@@ -5,7 +5,7 @@ date: 2025-06-21
 time: 10:00
 location: Sevenoaks School of Music
 type: play day
-tags: ["jazz", "workshop"]
+tags: ['jazz', 'workshop']
 ---
 
 Led by special guest instructors, this workshop is designed to boost your confidence in improvisation.

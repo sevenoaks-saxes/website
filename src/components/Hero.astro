@@ -8,28 +8,33 @@ interface Props {
 
 const { title, description, primaryCTA, secondaryCTA } = Astro.props;
 ---
-<section class="relative w-full min-h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden bg-heritage-currant">
+
+<section
+  class="relative w-full min-h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden bg-heritage-currant"
+>
   <!-- Background Image Placeholder - To be replaced by user -->
   <div class="absolute inset-0 z-0">
-    <img
-      src="/images/hero.png"
-      alt=""
-      class="w-full h-full object-cover"
-    />
+    <img src="/images/hero.png" alt="" class="w-full h-full object-cover" />
   </div>
 
   <!-- Content Overlay -->
   <div class="relative z-10 container mx-auto px-4 text-center text-white">
     <div class="max-w-4xl mx-auto space-y-8">
-      <h1 class="!text-white text-5xl md:text-7xl font-serif font-normal leading-[1.1] tracking-tight drop-shadow-xl">
+      <h1
+        class="!text-white text-5xl md:text-7xl font-serif font-normal leading-[1.1] tracking-tight drop-shadow-xl"
+      >
         {title}
       </h1>
 
-      <p class="text-xl md:text-2xl font-sans font-medium max-w-2xl mx-auto leading-relaxed drop-shadow-lg opacity-90">
+      <p
+        class="text-xl md:text-2xl font-sans font-medium max-w-2xl mx-auto leading-relaxed drop-shadow-lg opacity-90"
+      >
         {description}
       </p>
 
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-6 pt-6">
+      <div
+        class="flex flex-col sm:flex-row items-center justify-center gap-6 pt-6"
+      >
         <a
           href="/events"
           class="min-w-[200px] inline-flex items-center justify-center px-8 py-4 bg-heritage-currant hover:bg-heritage-currant-hover text-white font-sans font-semibold text-lg transition-all duration-300 rounded-md shadow-[0_4px_20px_rgba(0,0,0,0.3)] hover:-translate-y-1 active:translate-y-0"

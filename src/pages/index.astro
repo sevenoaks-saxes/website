@@ -15,12 +15,14 @@ const { Content } = await render(entry);
 <Layout title={entry.data.title} description={entry.data.description}>
   <Hero
     title={entry.data.hero?.title || entry.data.title}
-    description={entry.data.hero?.description || ""}
-    primaryCTA={entry.data.hero?.primary_cta || "Upcoming Events"}
-    secondaryCTA={entry.data.hero?.secondary_cta || "Learn More"}
+    description={entry.data.hero?.description || ''}
+    primaryCTA={entry.data.hero?.primary_cta || 'Upcoming Events'}
+    secondaryCTA={entry.data.hero?.secondary_cta || 'Learn More'}
   />
   <div class="prose-container py-16 md:py-24">
-    <div class="prose prose-lg max-w-none prose-p:leading-relaxed prose-headings:font-serif prose-headings:font-normal prose-headings:text-heritage-currant">
+    <div
+      class="prose prose-lg max-w-none prose-p:leading-relaxed prose-headings:font-serif prose-headings:font-normal prose-headings:text-heritage-currant"
+    >
       <Content />
     </div>
   </div>

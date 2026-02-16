@@ -5,7 +5,7 @@ date: 2025-04-12
 time: 19:30
 location: Sevenoaks Community Centre
 type: concert
-tags: ["concert", "spring"]
+tags: ['concert', 'spring']
 ---
 
 We'll be performing a range of pieces from classical favorites to modern arrangements. Tickets are available at the door.
