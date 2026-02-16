@@ -11,6 +11,7 @@ We review this privacy notice regularly. It was last reviewed on 16 February 202
 ### Members
 
 If you are a member of the group, we collect the following information:
+
 - name and contact details
 - payment history
 - your availability for rehearsals and concerts
@@ -18,6 +19,7 @@ If you are a member of the group, we collect the following information:
 - photos and video footage
 
 We use this information to:
+
 - administer your membership
 - let you know about our activities and events, including rehearsals and concerts
 - check if and when you’ve paid your subscription fees and follow up if you’ve missed a payment
@@ -36,6 +38,7 @@ We also rely on your **consent** to use your contact details to send you emails 
 ### Workers
 
 If you work for the group, we collect the following information:
+
 - name and contact details
 - right to work
 - details of any criminal convictions
@@ -43,6 +46,7 @@ If you work for the group, we collect the following information:
 - payment details
 
 We use this information to:
+
 - administer the contract that we have with you
 - ensure you have a right to work in the UK
 - pay you
@@ -52,11 +56,13 @@ Our lawful bases for collecting and using this information are to **comply with 
 ## Your rights
 
 You have the right to request:
+
 - information about how your personal data is processed
 - a copy of that personal data
 - that anything inaccurate in your personal data is corrected without undue delay
 
 You can also:
+
 - raise an objection about how your personal data is processed
 - request that your personal data is erased if there is no longer a justification for it
 - ask that the processing of your personal data is restricted in certain circumstances
@@ -66,7 +72,7 @@ If you wish to exercise your rights above, please contact us.
 ## How to complain
 
 If you have any concerns about our use of your personal data, you can make a complaint to us.
- 
+
 If you remain unhappy with how we’ve used your data after raising a complaint with us, you can also complain to the Information Commissioner’s Office (ICO).
 
 The ICO’s address is: Information Commissioner’s Office, Wycliffe House, Water Lane, Wilmslow, Cheshire, SK9 5AF
