@@ -9,7 +9,7 @@ const navLinks = [
       { name: 'Play days', href: '/about/play-days' },
       { name: 'Our conductor', href: '/about/our-conductor' },
       { name: 'Our patron', href: '/about/our-patron' },
-    ]
+    ],
   },
   { name: 'Events', href: '/events' },
   { name: 'Contact us', href: '/contact' },
@@ -17,53 +17,110 @@ const navLinks = [
 ---
 
 <header class="sticky top-0 z-50 w-full bg-heritage-currant shadow-lg">
-  <div class="container mx-auto flex h-20 items-center justify-between px-4 sm:px-6 lg:px-8">
+  <div
+    class="container mx-auto flex h-20 items-center justify-between px-4 sm:px-6 lg:px-8"
+  >
     <div class="flex items-center">
-      <a href="/" class="text-2xl font-serif font-normal tracking-tight text-white">
+      <a
+        href="/"
+        class="text-2xl font-serif font-normal tracking-tight text-white"
+      >
         Sevenoaks Saxes
       </a>
     </div>
 
     <!-- Desktop Navigation -->
     <nav class="hidden md:flex md:items-center md:space-x-10">
-      {navLinks.map((link) => (
-        <div class="relative group">
-          {link.dropdown ? (
-            <div class="flex items-center space-x-1 cursor-default py-2">
-              <a href={link.href} class="text-base font-medium text-white/90 hover:text-white transition-colors tracking-wide">
+      {
+        navLinks.map((link) => (
+          <div class="relative group">
+            {link.dropdown ? (
+              <div class="flex items-center space-x-1 cursor-default py-2">
+                <a
+                  href={link.href}
+                  class="text-base font-medium text-white/90 hover:text-white transition-colors tracking-wide"
+                >
+                  {link.name}
+                </a>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 text-white/60 group-hover:text-white transition-transform group-hover:rotate-180"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+
+                {/* Dropdown Menu */}
+                <div class="absolute left-0 top-full mt-0 w-56 rounded-sm bg-white py-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-in-out shadow-2xl border border-graphite/5">
+                  {link.dropdown.map((sublink) => (
+                    <a
+                      href={sublink.href}
+                      class="block px-6 py-2 text-sm text-graphite hover:bg-heritage-currant-soft hover:text-heritage-currant transition-colors tracking-wide"
+                    >
+                      {sublink.name}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <a
+                href={link.href}
+                class="text-base font-medium text-white/90 hover:text-white transition-colors py-2 tracking-wide"
+              >
                 {link.name}
               </a>
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white/60 group-hover:text-white transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-              </svg>
-
-              <!-- Dropdown Menu -->
-              <div class="absolute left-0 top-full mt-0 w-56 rounded-sm bg-white py-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-in-out shadow-2xl border border-graphite/5">
-                {link.dropdown.map((sublink) => (
-                  <a href={sublink.href} class="block px-6 py-2 text-sm text-graphite hover:bg-heritage-currant-soft hover:text-heritage-currant transition-colors tracking-wide">
-                    {sublink.name}
-                  </a>
-                ))}
-              </div>
-            </div>
-          ) : (
-            <a href={link.href} class="text-base font-medium text-white/90 hover:text-white transition-colors py-2 tracking-wide">
-              {link.name}
-            </a>
-          )}
-        </div>
-      ))}
+            )}
+          </div>
+        ))
+      }
     </nav>
 
     <!-- Mobile Menu Button -->
     <div class="flex md:hidden">
-      <button id="mobile-menu-button" type="button" class="inline-flex items-center justify-center rounded-md p-2 text-white hover:bg-heritage-currant-hover transition-colors" aria-controls="mobile-menu" aria-expanded="false">
+      <button
+        id="mobile-menu-button"
+        type="button"
+        class="inline-flex items-center justify-center rounded-md p-2 text-white hover:bg-heritage-currant-hover transition-colors"
+        aria-controls="mobile-menu"
+        aria-expanded="false"
+      >
         <span class="sr-only">Open main menu</span>
-        <svg id="menu-icon-open" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        <svg
+          id="menu-icon-open"
+          class="block h-6 w-6"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
-        <svg id="menu-icon-close" class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        <svg
+          id="menu-icon-close"
+          class="hidden h-6 w-6"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"></path>
         </svg>
       </button>
     </div>
@@ -71,23 +128,33 @@ const navLinks = [
 
   <!-- Mobile Menu -->
   <div class="hidden md:hidden" id="mobile-menu">
-    <div class="space-y-1 px-4 pb-6 pt-2 bg-heritage-currant border-t border-heritage-currant-hover shadow-inner">
-      {navLinks.map((link) => (
-        <div class="py-1">
-          <a href={link.href} class="block rounded-md px-3 py-2 text-lg font-medium text-white hover:bg-heritage-currant-hover transition-colors tracking-wide">
-            {link.name}
-          </a>
-          {link.dropdown && (
-            <div class="ml-6 space-y-1 mt-1 border-l border-white/20">
-              {link.dropdown.map((sublink) => (
-                <a href={sublink.href} class="block rounded-md px-4 py-2 text-sm font-medium text-white/80 hover:bg-heritage-currant-hover transition-colors tracking-wide">
-                  {sublink.name}
-                </a>
-              ))}
-            </div>
-          )}
-        </div>
-      ))}
+    <div
+      class="space-y-1 px-4 pb-6 pt-2 bg-heritage-currant border-t border-heritage-currant-hover shadow-inner"
+    >
+      {
+        navLinks.map((link) => (
+          <div class="py-1">
+            <a
+              href={link.href}
+              class="block rounded-md px-3 py-2 text-lg font-medium text-white hover:bg-heritage-currant-hover transition-colors tracking-wide"
+            >
+              {link.name}
+            </a>
+            {link.dropdown && (
+              <div class="ml-6 space-y-1 mt-1 border-l border-white/20">
+                {link.dropdown.map((sublink) => (
+                  <a
+                    href={sublink.href}
+                    class="block rounded-md px-4 py-2 text-sm font-medium text-white/80 hover:bg-heritage-currant-hover transition-colors tracking-wide"
+                  >
+                    {sublink.name}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+        ))
+      }
     </div>
   </div>
 </header>
@@ -100,7 +167,8 @@ const navLinks = [
 
   if (mobileMenuButton && mobileMenu && openIcon && closeIcon) {
     mobileMenuButton.addEventListener('click', () => {
-      const expanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+      const expanded =
+        mobileMenuButton.getAttribute('aria-expanded') === 'true';
       mobileMenuButton.setAttribute('aria-expanded', String(!expanded));
       mobileMenu.classList.toggle('hidden');
       openIcon.classList.toggle('hidden');

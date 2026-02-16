@@ -6,26 +6,37 @@ import EventCard from '../../components/EventCard.astro';
 const entry = await getEntry('pages', 'events');
 const events = await getCollection('events');
 // Sort events by date (upcoming first)
-const sortedEvents = events.sort((a, b) => new Date(a.data.date).getTime() - new Date(b.data.date).getTime());
+const sortedEvents = events.sort(
+  (a, b) => new Date(a.data.date).getTime() - new Date(b.data.date).getTime()
+);
 ---
 
-<Layout title={entry?.data.title || "Events"} description={entry?.data.description}>
+<Layout
+  title={entry?.data.title || 'Events'}
+  description={entry?.data.description}
+>
   <div class="container mx-auto px-4 py-12 md:py-20 sm:px-6 lg:px-8">
     <div class="prose-container !mx-0 !px-0 mb-16">
-      <h1 class="text-4xl font-serif font-normal text-heritage-currant mb-8">{entry?.data.title}</h1>
-      <p class="text-xl text-graphite/60 leading-relaxed italic">{entry?.data.description}</p>
+      <h1 class="text-4xl font-serif font-normal text-heritage-currant mb-8">
+        {entry?.data.title}
+      </h1>
+      <p class="text-xl text-graphite/60 leading-relaxed italic">
+        {entry?.data.description}
+      </p>
     </div>
 
     <div class="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
-      {sortedEvents.map(event => (
-        <EventCard event={event} />
-      ))}
+      {sortedEvents.map((event) => <EventCard event={event} />)}
     </div>
 
-    {events.length === 0 && (
-      <div class="text-center py-24">
-        <p class="text-graphite/40 uppercase tracking-[0.2em] font-bold text-xs">No upcoming events at the moment.</p>
-      </div>
-    )}
+    {
+      events.length === 0 && (
+        <div class="text-center py-24">
+          <p class="text-graphite/40 uppercase tracking-[0.2em] font-bold text-xs">
+            No upcoming events at the moment.
+          </p>
+        </div>
+      )
+    }
   </div>
 </Layout>

@@ -1,14 +1,14 @@
 ---
-name: Jazz Workshop Play Day
-description: A full day dedicated to exploring jazz improvisation on the saxophone.
-date: 2025-06-21
-time: 10:00
-location: Sevenoaks School of Music
-type: play day
-tags: ["jazz", "workshop"]
+name: Spring Concert
+description: Join us for an evening of wonderful saxophone music as we celebrate the arrival of spring.
+date: 2025-04-12
+time: 19:30
+location: Sevenoaks Community Centre
+type: concert
+tags: ['concert', 'spring']
 ---
 
-Led by special guest instructors, this workshop is designed to boost your confidence in improvisation.
+We'll be performing a range of pieces from classical favorites to modern arrangements. Tickets are available at the door.
 
 ## Event Programme
 

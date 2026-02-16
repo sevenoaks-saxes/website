@@ -1,18 +1,20 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-serif: "Young Serif", serif;
+  --font-sans:
+    'Instrument Sans', ui-sans-serif, system-ui, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-serif: 'Young Serif', serif;
 
-  --color-heritage-currant: #9B1B1B;
+  --color-heritage-currant: #9b1b1b;
   --color-heritage-currant-hover: #7a1515;
   --color-heritage-currant-soft: #fcf1f1;
 
-  --color-sage-ash: #5B6D5B;
+  --color-sage-ash: #5b6d5b;
   --color-sage-ash-hover: #4a594a;
 
-  --color-mist-blue: #7EACB5;
+  --color-mist-blue: #7eacb5;
   --color-mist-blue-hover: #6a969f;
 
   --color-graphite: #222222;
@@ -43,7 +45,12 @@ body {
   @apply font-sans antialiased text-graphite bg-white;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   @apply font-serif font-normal text-heritage-currant tracking-tight;
 }
 
