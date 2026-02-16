@@ -13,9 +13,12 @@
 
   --color-sage-ash: #5b6d5b;
   --color-sage-ash-hover: #4a594a;
+  --color-sage-ash-soft: #eff2ef;
 
   --color-mist-blue: #7eacb5;
   --color-mist-blue-hover: #6a969f;
+  --color-mist-blue-soft: #f2f7f8;
+  --color-mist-blue-dark: #416a71;
 
   --color-graphite: #222222;
   --color-graphite-muted: #666666;
@@ -23,22 +26,11 @@
 }
 
 :root {
-  --tw-prose-body: var(--color-graphite);
   --tw-prose-headings: var(--color-heritage-currant);
-  --tw-prose-lead: var(--color-graphite-muted);
   --tw-prose-links: var(--color-heritage-currant);
-  --tw-prose-bold: var(--color-graphite);
-  --tw-prose-counters: var(--color-graphite-muted);
-  --tw-prose-bullets: var(--color-graphite-muted);
-  --tw-prose-hr: var(--color-graphite-soft);
-  --tw-prose-quotes: var(--color-graphite);
   --tw-prose-quote-borders: var(--color-heritage-currant);
-  --tw-prose-captions: var(--color-graphite-muted);
-  --tw-prose-code: var(--color-graphite);
   --tw-prose-pre-code: white;
   --tw-prose-pre-bg: var(--color-graphite);
-  --tw-prose-th-borders: var(--color-graphite-soft);
-  --tw-prose-td-borders: var(--color-graphite-soft);
 }
 
 body {
@@ -72,4 +64,20 @@ p {
 
 .prose-container {
   @apply max-w-3xl mx-auto px-4;
+}
+
+.prose {
+  --tw-prose-body: var(--color-graphite);
+  --tw-prose-lead: var(--color-graphite);
+  --tw-prose-bold: var(--color-graphite);
+  --tw-prose-counters: var(--color-graphite);
+  --tw-prose-bullets: var(--color-graphite);
+  --tw-prose-hr: var(--color-graphite-soft);
+  --tw-prose-quotes: var(--color-graphite);
+  --tw-prose-captions: var(--color-graphite-muted);
+  --tw-prose-code: var(--color-graphite);
+  --tw-prose-th-borders: var(--color-graphite-soft);
+  --tw-prose-td-borders: var(--color-graphite-soft);
+  --tw-prose-invert-bullets: var(--color-graphite-soft);
+  --tw-prose-invert-counters: var(--color-graphite-soft);
 }
