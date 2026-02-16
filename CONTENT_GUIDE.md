@@ -2,7 +2,11 @@
 
 This guide is for anyone who needs to update the text, events, or pages on the Sevenoaks Saxes website. You don't need to know how to code to make these changes, but you will need to edit **Markdown** files.
 
-## 📁 Where is the Content?
+## Important: No Emojis
+
+Please do not use emojis anywhere in the website content (page text, event descriptions, or settings).
+
+## Where is the Content?
 
 All website content is located in the `src/content/` folder:
 
@@ -11,7 +15,7 @@ All website content is located in the `src/content/` folder:
 
 ---
 
-## 📄 Editing Pages
+## Editing Pages
 
 Pages are made of two parts: the **Frontmatter** (settings at the top) and the **Content** (the text of the page).
 
@@ -48,9 +52,14 @@ hero:
 
 ---
 
-## 📅 Adding & Editing Events
+## Adding & Editing Events
 
-To add a new event, create a new `.md` file in `src/content/events/`. You can name it something like `2024-summer-concert.md`.
+### File Naming Convention
+
+Event files must follow a specific naming format to ensure they are ordered correctly:
+`yyyymmdd-event-name.md`
+
+For example: `20250412-spring-concert.md`
 
 ### Event Settings (Frontmatter)
 
@@ -63,7 +72,7 @@ description: 'An evening of jazz and classical favorites.'
 date: 2024-05-15
 time: '19:30'
 location: 'Sevenoaks Community Centre'
-type: 'concert' # Must be one of: concert, rehearsal, play day, other
+type: 'concert' # Must be one of: concert, rehearsal, play day, or other
 tags: ['jazz', 'classical']
 ---
 ```
@@ -73,7 +82,7 @@ tags: ['jazz', 'classical']
 
 ---
 
-## 📝 Markdown Basics
+## Markdown Basics
 
 Markdown is a simple way to format text using symbols.
 
@@ -87,7 +96,7 @@ Markdown is a simple way to format text using symbols.
   - Item 2
   ```
 
-## 🖼️ Images
+## Images
 
 If you want to add an image to a page or event:
 
@@ -108,7 +117,7 @@ image: '/images/event-poster.jpg'
 
 ---
 
-## 🚀 How to Save Your Changes
+## How to Save Your Changes
 
 1. **Edit** the file on GitHub (or your local editor).
 2. **Commit** the changes (save them with a short description of what you changed).

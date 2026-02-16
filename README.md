@@ -4,7 +4,7 @@ Welcome to the repository for the Sevenoaks Saxes website. Sevenoaks Saxes is a 
 
 This website is built with [Astro 5](https://astro.build/), styled with [Tailwind CSS 4](https://tailwindcss.com/), and deployed on [Cloudflare Pages](https://pages.cloudflare.com/).
 
-## 🚀 Tech Stack
+## Tech Stack
 
 - **Framework:** [Astro 5](https://astro.build/) (Static Site Generation / Hybrid)
 - **Styling:** [Tailwind CSS 4](https://tailwindcss.com/)
@@ -12,7 +12,7 @@ This website is built with [Astro 5](https://astro.build/), styled with [Tailwin
 - **Deployment:** [Cloudflare Pages](https://pages.cloudflare.com/)
 - **Content:** Markdown (using Astro Content Layer)
 
-## 📁 Project Structure
+## Project Structure
 
 ```text
 /
@@ -32,7 +32,7 @@ This website is built with [Astro 5](https://astro.build/), styled with [Tailwin
 └── astro.config.mjs     # Astro configuration
 ```
 
-## 🛠️ Development
+## Development
 
 ### Prerequisites
 
@@ -69,7 +69,7 @@ npm run build
 npm run preview
 ```
 
-## 🌐 Deployment
+## Deployment
 
 ### Automated Deployment
 
@@ -94,19 +94,16 @@ If you need to deploy manually from your local machine, you can use [Wrangler](h
    npx wrangler pages deploy ./dist
    ```
 
-## 📝 Content Management
+## Content Management
 
 Non-technical users who want to update the website's content (e.g., adding events or editing page text) should refer to the **[Content Guide](./CONTENT_GUIDE.md)**.
 
-## 🤝 Contributing
+## Contributing
 
 ### Coding Standards
 
-We use [Prettier](https://prettier.io/) to maintain consistent code formatting. Before submitting a pull request, please ensure your code is formatted:
-
-```sh
-npm run format
-```
+- We use [Prettier](https://prettier.io/) to maintain consistent code formatting. Run `npm run format` before submitting.
+- **No Emojis:** Do not use emojis in the codebase, documentation, or website content.
 
 ### General Guidelines
 
@@ -114,6 +111,6 @@ npm run format
 - Ensure all changes meet at least WCAG AA accessibility standards.
 - Follow the directory-based routing logic for the 'About' section (nested folders in `src/content/pages/about/`).
 
-## 📮 Contact & Support
+## Contact & Support
 
 For any questions or issues, please contact **[@calumabarnett](https://github.com/calumabarnett)** on GitHub or [open an issue](https://github.com/calumabarnett/sevenoaks-saxes/issues) in the repository.
