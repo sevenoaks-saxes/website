@@ -111,6 +111,32 @@ Non-technical users who want to update the website's content (e.g., adding event
 - Ensure all changes meet at least WCAG AA accessibility standards.
 - Follow the directory-based routing logic for the 'About' section (nested folders in `src/content/pages/about/`).
 
+### Hero Mesh Background
+
+The Home page Hero section supports a customizable CSS gradient mesh background. This can be configured in the frontmatter of `src/content/pages/home.md` under the `hero.mesh` key.
+
+| Parameter | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `colors` | `array` | Brand colors | An array of hex color strings for the mesh blobs. |
+| `speed` | `number` | `20` | The duration in seconds for a full animation cycle. |
+| `complexity` | `number` | `6` | Number of mesh blobs (between 2 and 10). |
+| `opacity` | `number` | `0.8` | Overall opacity of the mesh background (0 to 1). |
+| `grain` | `boolean` | `true` | Whether to show the subtle noise/grain overlay. |
+
+Example configuration:
+
+```yaml
+hero:
+  title: 'Sevenoaks Saxes'
+  ...
+  mesh:
+    colors: ['#9B1B1B', '#5B6D5B', '#7EACB5']
+    speed: 30
+    complexity: 8
+    opacity: 0.7
+    grain: true
+```
+
 ## Contact & Support
 
 For any questions or issues, please contact **[@calumabarnett](https://github.com/calumabarnett)** on GitHub or [open an issue](https://github.com/calumabarnett/sevenoaks-saxes/issues) in the repository.

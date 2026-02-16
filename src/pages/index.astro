@@ -18,6 +18,7 @@ const { Content } = await render(entry);
     description={entry.data.hero?.description || ''}
     primaryCTA={entry.data.hero?.primary_cta || 'Upcoming Events'}
     secondaryCTA={entry.data.hero?.secondary_cta || 'Learn More'}
+    mesh={entry.data.hero?.mesh}
   />
   <div class="prose-container py-16 md:py-24">
     <div
