@@ -1,0 +1,25 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+{/*
+  PLACEHOLDER LOGO COMPONENT
+  To add your custom SVG code:
+  1. Replace the <svg> element below with your own SVG.
+  2. Ensure it has the `class={className}` attribute to maintain layout consistency.
+  3. Use `fill="currentColor"` or `stroke="currentColor"` to inherit the brand colors.
+*/}
+
+<svg
+  viewBox="0 0 32 32"
+  class={className}
+  fill="currentColor"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+>
+  <circle cx="16" cy="16" r="16"></circle>
+</svg>
