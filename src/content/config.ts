@@ -12,6 +12,15 @@ const pages = defineCollection({
         description: z.string(),
         primary_cta: z.string(),
         secondary_cta: z.string(),
+        mesh: z
+          .object({
+            colors: z.array(z.string()).optional(),
+            speed: z.number().optional(),
+            grain: z.boolean().optional(),
+            complexity: z.number().min(2).max(10).optional(),
+            opacity: z.number().min(0).max(1).optional(),
+          })
+          .optional(),
       })
       .optional(),
   }),

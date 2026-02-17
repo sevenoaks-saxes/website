@@ -4,30 +4,93 @@ interface Props {
   description: string;
   primaryCTA: string;
   secondaryCTA: string;
+  mesh?: {
+    colors?: string[];
+    speed?: number;
+    grain?: boolean;
+    complexity?: number;
+    opacity?: number;
+  };
 }
 
-const { title, description, primaryCTA, secondaryCTA } = Astro.props;
+const { title, description, primaryCTA, secondaryCTA, mesh } = Astro.props;
+
+// Default brand colors
+const defaultColors = [
+  '#9B1B1B', // Heritage Currant
+  '#5B6D5B', // Sage Ash
+  '#7EACB5', // Mist Blue
+  '#416A71', // Mist Blue Dark
+];
+
+const colors = mesh?.colors && mesh.colors.length > 0 ? mesh.colors : defaultColors;
+const speed = mesh?.speed ?? 20;
+const complexity = Math.max(2, Math.min(10, mesh?.complexity ?? 6));
+const opacity = mesh?.opacity ?? 0.8;
+const showGrain = mesh?.grain ?? true;
+
+// Generate blobs with deterministic pseudo-random positions/movements
+const blobs = Array.from({ length: complexity }).map((_, i) => {
+  const color = colors[i % colors.length];
+  const delay = (i * -speed) / complexity;
+  const duration = speed + (i % (speed / 2 || 1));
+
+  // Spread initial positions across the container
+  const top = 10 + (i * 70) / complexity + (i % 3) * 5;
+  const left = 10 + ((i * 137) % 80);
+  const size = 30 + (i % 4) * 15;
+
+  return {
+    color,
+    delay: `${delay}s`,
+    duration: `${duration}s`,
+    top: `${top}%`,
+    left: `${left}%`,
+    size: `${size}%`,
+  };
+});
 ---
 
 <section
-  class="relative w-full min-h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden bg-heritage-currant"
+  class="relative w-full min-h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden bg-graphite"
 >
-  <!-- Background Image Placeholder - To be replaced by user -->
-  <div class="absolute inset-0 z-0">
-    <img src="/images/hero.png" alt="" class="w-full h-full object-cover" />
+  <!-- Mesh Background Container -->
+  <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden" style={`opacity: ${opacity};`}>
+    <!-- Blobs with blur -->
+    <div class="absolute inset-0 mesh-container">
+      {blobs.map((blob) => (
+        <div
+          class="blob absolute rounded-full mix-blend-screen opacity-60"
+          style={{
+            backgroundColor: blob.color,
+            width: blob.size,
+            height: blob.size,
+            top: blob.top,
+            left: blob.left,
+            '--duration': blob.duration,
+            '--delay': blob.delay,
+          }}
+        />
+      ))}
+    </div>
+
+    {showGrain && <div class="absolute inset-0 grain" />}
+
+    <!-- Subtle overlay for contrast -->
+    <div class="absolute inset-0 bg-black/10" />
   </div>
 
   <!-- Content Overlay -->
   <div class="relative z-10 container mx-auto px-4 text-center text-white">
     <div class="max-w-4xl mx-auto space-y-8">
       <h1
-        class="!text-white text-5xl md:text-7xl font-serif font-normal leading-[1.1] tracking-tight drop-shadow-xl"
+        class="!text-white text-5xl md:text-7xl font-serif font-normal leading-[1.1] tracking-tight drop-shadow-2xl"
       >
         {title}
       </h1>
 
       <p
-        class="text-xl md:text-2xl font-sans font-medium max-w-2xl mx-auto leading-relaxed drop-shadow-lg opacity-90"
+        class="text-xl md:text-2xl font-sans font-medium max-w-2xl mx-auto leading-relaxed drop-shadow-xl opacity-90"
       >
         {description}
       </p>
@@ -51,3 +114,45 @@ const { title, description, primaryCTA, secondaryCTA } = Astro.props;
     </div>
   </div>
 </section>
+
+<style>
+  .mesh-container {
+    filter: blur(100px);
+    /* Forcing a hardware-accelerated layer */
+    transform: translate3d(0, 0, 0);
+    width: 100%;
+    height: 100%;
+  }
+
+  .blob {
+    animation: blob-movement var(--duration) ease-in-out var(--delay) infinite alternate;
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+  }
+
+  @keyframes blob-movement {
+    0% {
+      transform: translate(-10%, -10%) scale(1);
+    }
+    50% {
+      transform: translate(15%, 10%) scale(1.1);
+    }
+    100% {
+      transform: translate(-5%, 20%) scale(0.9);
+    }
+  }
+
+  .grain {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.1;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+  }
+
+  /* Reduce motion if requested */
+  @media (prefers-reduced-motion: reduce) {
+    .blob {
+      animation: none;
+    }
+  }
+</style>

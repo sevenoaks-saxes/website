@@ -6,6 +6,12 @@ hero:
   description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
   primary_cta: Upcoming Events
   secondary_cta: Learn More
+  mesh:
+    colors: ['#9B1B1B', '#5B6D5B', '#7EACB5', '#416A71']
+    speed: 25
+    complexity: 6
+    opacity: 0.8
+    grain: true
 ---
 
 Sevenoaks Saxes is a vibrant community saxophone ensemble. We welcome players of all ages and abilities to join us in making music.
