@@ -11,15 +11,15 @@ const formattedDate = new Date(date).toLocaleDateString('en-GB', {
 
 const typeColors = {
   concert:
-    'text-heritage-currant border-heritage-currant/20 bg-heritage-currant-soft',
-  rehearsal: 'text-sage-ash border-sage-ash/20 bg-sage-ash-soft',
-  'play day': 'text-mist-blue-dark border-mist-blue/20 bg-mist-blue-soft',
-  other: 'text-graphite border-graphite/20 bg-graphite-soft',
+    'text-orchard-terracotta border-orchard-terracotta/20 bg-orchard-terracotta-light/10',
+  rehearsal: 'text-wealden-green border-wealden-green/20 bg-wealden-green-light/10',
+  'play day': 'text-bluebell-haze border-bluebell-haze/20 bg-bluebell-haze-light/10',
+  other: 'text-knole-ink border-knole-ink/20 bg-downs-chalk',
 };
 ---
 
 <div
-  class="flex flex-col overflow-hidden bg-white border border-graphite/5 transition-all hover:border-graphite/20 group"
+  class="flex flex-col overflow-hidden bg-white border border-knole-ink/5 transition-all hover:border-knole-ink/20 group"
 >
   <div class="p-8">
     <div class="flex items-center justify-between mb-8">
@@ -29,33 +29,33 @@ const typeColors = {
         {type}
       </span>
       <span
-        class="text-xs font-semibold text-graphite/70 uppercase tracking-widest"
+        class="text-xs font-semibold text-knole-ink/70 uppercase tracking-widest"
         >{time}</span
       >
     </div>
     <h3
-      class="text-2xl font-serif font-normal mb-4 text-heritage-currant group-hover:text-heritage-currant-hover transition-colors leading-tight"
+      class="text-2xl font-serif font-normal mb-4 text-orchard-terracotta group-hover:text-orchard-terracotta-dark transition-colors leading-tight"
     >
       <a href={`/events/${event.id}`}>
         {name}
       </a>
     </h3>
-    <p class="text-xs font-bold text-sage-ash uppercase tracking-widest mb-6">
+    <p class="text-xs font-bold text-wealden-green uppercase tracking-widest mb-6">
       {formattedDate}
     </p>
     <p
-      class="text-base text-graphite/80 font-medium mb-8 leading-relaxed line-clamp-2 italic"
+      class="text-base text-knole-ink/80 font-medium mb-8 leading-relaxed line-clamp-2 italic"
     >
       {location}
     </p>
-    <p class="text-graphite/90 line-clamp-3 leading-relaxed text-base">
+    <p class="text-knole-ink/90 line-clamp-3 leading-relaxed text-base">
       {description}
     </p>
   </div>
   <div class="px-8 pb-8 mt-auto">
     <a
       href={`/events/${event.id}`}
-      class="text-[11px] font-bold text-heritage-currant uppercase tracking-[0.2em] hover:text-heritage-currant-hover transition-colors inline-flex items-center border-b border-heritage-currant/20 pb-1"
+      class="text-[11px] font-bold text-orchard-terracotta uppercase tracking-[0.2em] hover:text-orchard-terracotta-dark transition-colors inline-flex items-center border-b border-orchard-terracotta/20 pb-1"
     >
       Explore Event
     </a>

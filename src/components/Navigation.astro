@@ -18,7 +18,7 @@ const navLinks = [
 import Logo from './Logo.astro';
 ---
 
-<header class="sticky top-0 z-50 w-full bg-heritage-currant shadow-lg">
+<header class="sticky top-0 z-50 w-full bg-wealden-green shadow-lg">
   <div
     class="container mx-auto flex h-20 items-center justify-between px-4 sm:px-6 lg:px-8"
   >
@@ -61,11 +61,11 @@ import Logo from './Logo.astro';
                 </svg>
 
                 {/* Dropdown Menu */}
-                <div class="absolute left-0 top-full mt-0 w-56 rounded-sm bg-white py-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-in-out shadow-2xl border border-graphite/5">
+                <div class="absolute left-0 top-full mt-0 w-56 rounded-sm bg-downs-chalk py-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-in-out shadow-2xl border border-knole-ink/5">
                   {link.dropdown.map((sublink) => (
                     <a
                       href={sublink.href}
-                      class="block px-6 py-2 text-base text-graphite hover:bg-heritage-currant-soft hover:text-heritage-currant transition-colors tracking-wide"
+                      class="block px-6 py-2 text-base text-knole-ink hover:bg-wealden-green hover:text-white transition-colors tracking-wide"
                     >
                       {sublink.name}
                     </a>
@@ -90,7 +90,7 @@ import Logo from './Logo.astro';
       <button
         id="mobile-menu-button"
         type="button"
-        class="inline-flex items-center justify-center rounded-md p-2 text-white hover:bg-heritage-currant-hover transition-colors"
+        class="inline-flex items-center justify-center rounded-md p-2 text-white hover:bg-wealden-green-dark transition-colors"
         aria-controls="mobile-menu"
         aria-expanded="false"
       >
@@ -132,14 +132,14 @@ import Logo from './Logo.astro';
   <!-- Mobile Menu -->
   <div class="hidden md:hidden" id="mobile-menu">
     <div
-      class="space-y-1 px-4 pb-6 pt-2 bg-heritage-currant border-t border-heritage-currant-hover shadow-inner"
+      class="space-y-1 px-4 pb-6 pt-2 bg-wealden-green border-t border-wealden-green-dark shadow-inner"
     >
       {
         navLinks.map((link) => (
           <div class="py-1">
             <a
               href={link.href}
-              class="block rounded-md px-3 py-2 text-lg font-medium text-white hover:bg-heritage-currant-hover transition-colors tracking-wide"
+              class="block rounded-md px-3 py-2 text-lg font-medium text-white hover:bg-wealden-green-dark transition-colors tracking-wide"
             >
               {link.name}
             </a>
@@ -148,7 +148,7 @@ import Logo from './Logo.astro';
                 {link.dropdown.map((sublink) => (
                   <a
                     href={sublink.href}
-                    class="block rounded-md px-4 py-2 text-base font-medium text-white/90 hover:bg-heritage-currant-hover transition-colors tracking-wide"
+                    class="block rounded-md px-4 py-2 text-base font-medium text-white/90 hover:bg-wealden-green-dark transition-colors tracking-wide"
                   >
                     {sublink.name}
                   </a>
