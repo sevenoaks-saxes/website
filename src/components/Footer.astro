@@ -2,71 +2,36 @@
 const today = new Date();
 ---
 
-<footer class="bg-knole-ink text-white section-padding pt-32 pb-16">
+<footer class="bg-knole-ink text-white py-16 md:py-20">
   <div class="container mx-auto px-6 lg:px-12">
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-8">
-      <div class="md:col-span-6 lg:col-span-5">
+    <div class="flex flex-col md:flex-row justify-between gap-12 md:gap-8">
+      <div class="max-w-md">
         <a
           href="/"
-          class="text-3xl font-serif font-normal text-white mb-8 block tracking-tight transition-transform hover:scale-105 origin-left"
+          class="text-2xl font-serif font-normal text-white mb-6 block tracking-tight hover:text-wealden-green transition-colors"
         >
           Sevenoaks Saxes
         </a>
-        <p class="text-lg text-white/60 max-w-md leading-relaxed mb-12">
-          A vibrant community saxophone ensemble and orchestra based in Kent. We
-          strive for musical excellence while fostering a supportive and dynamic
-          environment for players of all levels.
+        <p class="text-base text-white/50 leading-relaxed mb-8">
+          A vibrant community saxophone ensemble and orchestra based in Kent, dedicated to musical excellence and community.
+        </p>
+        <div class="flex gap-8">
+          <a href="/about" class="text-sm font-semibold text-white/70 hover:text-wealden-green transition-colors">About</a>
+          <a href="/events" class="text-sm font-semibold text-white/70 hover:text-wealden-green transition-colors">Events</a>
+          <a href="/contact" class="text-sm font-semibold text-white/70 hover:text-wealden-green transition-colors">Contact</a>
+          <a href="/privacy" class="text-sm font-semibold text-white/70 hover:text-wealden-green transition-colors">Privacy</a>
+        </div>
+      </div>
+
+      <div class="flex flex-col md:items-end justify-between py-1">
+        <div class="text-left md:text-right">
+          <p class="text-sm font-medium text-wealden-green mb-2">Rehearsing monthly in Sevenoaks</p>
+          <p class="text-sm text-white/40">The Drive Methodist Church, TN13 3AB</p>
+        </div>
+        <p class="text-xs font-bold text-white/20 tracking-[0.2em] mt-8 md:mt-0">
+          &copy; {today.getFullYear()} Sevenoaks Saxes. Dedicated to the Art of the Saxophone.
         </p>
       </div>
-
-      <div class="md:col-span-3 lg:col-span-3 lg:col-start-7">
-        <h4
-          class="text-wealden-green font-bold uppercase tracking-[0.3em] text-[10px] mb-10"
-        >
-          Explore
-        </h4>
-        <nav class="space-y-6">
-          <a
-            href="/about"
-            class="block text-white/70 hover:text-wealden-green transition-colors font-medium text-lg"
-            >About Us</a
-          >
-          <a
-            href="/events"
-            class="block text-white/70 hover:text-wealden-green transition-colors font-medium text-lg"
-            >Events</a
-          >
-          <a
-            href="/contact"
-            class="block text-white/70 hover:text-wealden-green transition-colors font-medium text-lg"
-            >Contact Us</a
-          >
-        </nav>
-      </div>
-
-      <div class="md:col-span-3 lg:col-span-3">
-        <h4
-          class="text-wealden-green font-bold uppercase tracking-[0.3em] text-[10px] mb-10"
-        >
-          Information
-        </h4>
-        <nav class="space-y-6">
-          <a
-            href="/privacy"
-            class="block text-white/70 hover:text-wealden-green transition-colors font-medium text-lg"
-            >Privacy Policy</a
-          >
-        </nav>
-      </div>
-    </div>
-
-    <div
-      class="mt-32 pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-8 text-[11px] font-bold text-white/30 uppercase tracking-[0.4em]"
-    >
-      <p>&copy; {today.getFullYear()} Sevenoaks Saxes.</p>
-      <p class="text-center md:text-right">
-        Dedicated to the Art of the Saxophone
-      </p>
     </div>
   </div>
 </footer>

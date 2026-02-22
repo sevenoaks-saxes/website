@@ -3,14 +3,14 @@ title: Our Groups
 description: Information about the different saxophone groups we have.
 ---
 
-We have several groups catering to different levels of experience:
+Sevenoaks Saxes is composed of two primary groups, each offering a unique musical experience. We rehearse once a month on Saturdays at The Drive Methodist Church in Sevenoaks, providing an intensive and rewarding environment for our members.
 
-- **The Main Ensemble:** Our largest group, performing a broad repertoire.
-- **The Sax Quartet:** A smaller, more focused group for advanced players.
-- **Training Group:** Perfect for those newer to the saxophone or returning after a break.
+## The Saxophone Ensemble
 
-## Detailed Insight
+The Saxophone Ensemble is our core group, bringing together a wide range of saxophonists to perform a diverse and challenging repertoire. From classical transcriptions to contemporary original works, the ensemble explores the full expressive potential of the saxophone family. We pride ourselves on our musical quality and the supportive, collaborative atmosphere that defines every rehearsal.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id interdum nibh. Etiam ac mi in justo pretium elementum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris accumsan fermentum magna, ac condimentum odio. Sed sodales diam at turpis lacinia, ac accumsan lectus venenatis.
+## The Saxophone Orchestra
 
-Nam vel lorem ac ante laoreet aliquet. Quisque ac magna non nisi porttitor scelerisque ac id lectus. Cras nec dui a lorem pretium mollis. In sit amet sem ac erat faucibus pretium. Vestibulum vitae vehicula sem. Sed euismod, leo ut mattis consequat, nisi nisi elementum nisl, non hendrerit nulla dui id dui.
+Our Saxophone Orchestra provides a larger-scale symphonic experience. By incorporating the full range of saxophones—from the soaring sopranino to the deep resonance of the contrabass—the orchestra achieves a rich, orchestral texture. This group tackles complex arrangements and symphonic works, offering our members the chance to be part of a truly unique and powerful sound.
+
+Both groups are united by a passion for the instrument and a commitment to achieving the highest artistic standards. Whether you're an experienced player or a dedicated amateur, our groups provide a space to grow, learn, and perform at the highest level.

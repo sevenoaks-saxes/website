@@ -1,17 +1,22 @@
 ---
-name: Jazz Workshop Play Day
-description: A full day dedicated to exploring jazz improvisation on the saxophone.
+name: Contemporary Saxophone Play Day
+description: A full day of immersive music-making exploring the modern sound of the saxophone choir.
 date: 2025-06-21
-time: 10:00
-location: Sevenoaks School of Music
+time: '10:00 - 16:30'
+location: The Drive Methodist Church, Sevenoaks
 type: play day
-tags: ['jazz', 'workshop']
+tags: ['contemporary', 'workshop', 'ensemble']
 ---
 
-Led by special guest instructors, this workshop is designed to boost your confidence in improvisation.
+Our June Play Day focuses on "The Contemporary Saxophone," exploring original works and commissions for saxophone choir. Led by our conductor Caroline Fernandes, this intensive workshop is open to all saxophonists who want to explore modern repertoire in a supportive and high-energy environment.
 
-## Event Programme
+Participants will work on several multi-part pieces throughout the day, focusing on extended techniques, rhythmic precision, and contemporary soundscapes.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vel ante sed felis faucibus gravida. Nunc molestie ante ut metus. In hac habitasse platea dictumst. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vivamus nec ipsum sed metus porta malesuada.
+## Play Day Schedule
 
-Suspendisse feugiat. Donec porta diam eu massa. Quisque diam lorem, interdum vitae, tincidunt ac, venenatis quis, ante. Aliquam erat volutpat. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.
+- **10:00:** Welcome and Warm-up
+- **10:30:** Session 1: Contemporary Commissions
+- **12:30:** Lunch Break (please bring your own)
+- **13:30:** Session 2: Extended Techniques and Soundscapes
+- **15:30:** Informal Run-through
+- **16:30:** Finish
