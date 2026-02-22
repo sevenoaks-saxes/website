@@ -7,34 +7,37 @@
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   --font-serif: 'Young Serif', serif;
 
-  --color-heritage-currant: #9b1b1b;
-  --color-heritage-currant-hover: #7a1515;
-  --color-heritage-currant-soft: #fcf1f1;
+  --color-wealden-green: #34a19c;
+  --color-wealden-green-light: #86c7c4;
+  --color-wealden-green-dark: #2b817d;
 
-  --color-sage-ash: #5b6d5b;
-  --color-sage-ash-hover: #4a594a;
-  --color-sage-ash-soft: #eff2ef;
+  --color-orchard-terracotta: #e27c6a;
+  --color-orchard-terracotta-light: #e89688;
+  --color-orchard-terracotta-dark: #b66354;
 
-  --color-mist-blue: #7eacb5;
-  --color-mist-blue-hover: #6a969f;
-  --color-mist-blue-soft: #f2f7f8;
-  --color-mist-blue-dark: #416a71;
+  --color-knole-ink: #2d2d41;
+  --color-knole-ink-light: #575767;
+  --color-knole-ink-dark: #252433;
 
-  --color-graphite: #222222;
-  --color-graphite-muted: #666666;
-  --color-graphite-soft: #f5f5f5;
+  --color-bluebell-haze: #8480b6;
+  --color-bluebell-haze-light: #9d99c5;
+  --color-bluebell-haze-dark: #6a6692;
+
+  --color-downs-chalk: #f0f1f2;
+  --color-downs-chalk-light: #f3f4f5;
+  --color-downs-chalk-dark: #c0c1c2;
 }
 
 :root {
-  --tw-prose-headings: var(--color-heritage-currant);
-  --tw-prose-links: var(--color-heritage-currant);
-  --tw-prose-quote-borders: var(--color-heritage-currant);
+  --tw-prose-headings: var(--color-orchard-terracotta);
+  --tw-prose-links: var(--color-bluebell-haze);
+  --tw-prose-quote-borders: var(--color-bluebell-haze);
   --tw-prose-pre-code: white;
-  --tw-prose-pre-bg: var(--color-graphite);
+  --tw-prose-pre-bg: var(--color-knole-ink);
 }
 
 body {
-  @apply font-sans antialiased text-graphite bg-white;
+  @apply font-sans antialiased text-knole-ink bg-white;
 }
 
 h1,
@@ -43,7 +46,7 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-serif font-normal text-heritage-currant tracking-tight;
+  @apply font-serif font-normal text-orchard-terracotta tracking-tight;
 }
 
 h1 {
@@ -67,17 +70,17 @@ p {
 }
 
 .prose {
-  --tw-prose-body: var(--color-graphite);
-  --tw-prose-lead: var(--color-graphite);
-  --tw-prose-bold: var(--color-graphite);
-  --tw-prose-counters: var(--color-graphite);
-  --tw-prose-bullets: var(--color-graphite);
-  --tw-prose-hr: var(--color-graphite-soft);
-  --tw-prose-quotes: var(--color-graphite);
-  --tw-prose-captions: var(--color-graphite-muted);
-  --tw-prose-code: var(--color-graphite);
-  --tw-prose-th-borders: var(--color-graphite-soft);
-  --tw-prose-td-borders: var(--color-graphite-soft);
-  --tw-prose-invert-bullets: var(--color-graphite-soft);
-  --tw-prose-invert-counters: var(--color-graphite-soft);
+  --tw-prose-body: var(--color-knole-ink);
+  --tw-prose-lead: var(--color-knole-ink);
+  --tw-prose-bold: var(--color-knole-ink);
+  --tw-prose-counters: var(--color-knole-ink);
+  --tw-prose-bullets: var(--color-knole-ink);
+  --tw-prose-hr: var(--color-downs-chalk-dark);
+  --tw-prose-quotes: var(--color-knole-ink);
+  --tw-prose-captions: var(--color-knole-ink-light);
+  --tw-prose-code: var(--color-knole-ink);
+  --tw-prose-th-borders: var(--color-downs-chalk-dark);
+  --tw-prose-td-borders: var(--color-downs-chalk-dark);
+  --tw-prose-invert-bullets: var(--color-downs-chalk-dark);
+  --tw-prose-invert-counters: var(--color-downs-chalk-dark);
 }

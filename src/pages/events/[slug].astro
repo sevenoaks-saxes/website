@@ -22,10 +22,10 @@ const formattedDate = new Date(event.data.date).toLocaleDateString('en-GB', {
 
 const typeColors = {
   concert:
-    'text-heritage-currant border-heritage-currant/20 bg-heritage-currant-soft',
-  rehearsal: 'text-sage-ash border-sage-ash/20 bg-sage-ash-soft',
-  'play day': 'text-mist-blue-dark border-mist-blue/20 bg-mist-blue-soft',
-  other: 'text-graphite border-graphite/20 bg-graphite-soft',
+    'text-orchard-terracotta border-orchard-terracotta/20 bg-orchard-terracotta-light/10',
+  rehearsal: 'text-wealden-green border-wealden-green/20 bg-wealden-green-light/10',
+  'play day': 'text-bluebell-haze border-bluebell-haze/20 bg-bluebell-haze-light/10',
+  other: 'text-knole-ink border-knole-ink/20 bg-downs-chalk',
 };
 ---
 
@@ -33,7 +33,7 @@ const typeColors = {
   <div class="prose-container py-12 md:py-20">
     <a
       href="/events"
-      class="inline-flex items-center text-[11px] font-bold text-heritage-currant hover:text-heritage-currant-hover mb-12 transition-colors uppercase tracking-[0.2em]"
+      class="inline-flex items-center text-[11px] font-bold text-orchard-terracotta hover:text-orchard-terracotta-dark mb-12 transition-colors uppercase tracking-[0.2em]"
     >
       <svg
         class="mr-2 h-3 w-3"
@@ -61,37 +61,37 @@ const typeColors = {
       <h1 class="mb-12">{event.data.name}</h1>
 
       <div
-        class="grid grid-cols-1 sm:grid-cols-2 gap-12 bg-graphite-soft/30 p-12 rounded-sm border border-graphite/5"
+        class="grid grid-cols-1 sm:grid-cols-2 gap-12 bg-downs-chalk/30 p-12 rounded-sm border border-knole-ink/5"
       >
         <div>
           <h2
-            class="text-[10px] font-bold text-sage-ash uppercase tracking-[0.2em] mb-4 mt-0"
+            class="text-[10px] font-bold text-orchard-terracotta uppercase tracking-[0.2em] mb-4 mt-0"
           >
             Date
           </h2>
-          <p class="text-lg text-graphite font-serif">{formattedDate}</p>
+          <p class="text-lg text-knole-ink font-serif">{formattedDate}</p>
         </div>
         <div>
           <h2
-            class="text-[10px] font-bold text-sage-ash uppercase tracking-[0.2em] mb-4 mt-0"
+            class="text-[10px] font-bold text-orchard-terracotta uppercase tracking-[0.2em] mb-4 mt-0"
           >
             Time
           </h2>
-          <p class="text-lg text-graphite font-serif">{event.data.time}</p>
+          <p class="text-lg text-knole-ink font-serif">{event.data.time}</p>
         </div>
         <div class="sm:col-span-2">
           <h2
-            class="text-[10px] font-bold text-sage-ash uppercase tracking-[0.2em] mb-4 mt-0"
+            class="text-[10px] font-bold text-orchard-terracotta uppercase tracking-[0.2em] mb-4 mt-0"
           >
             Location
           </h2>
-          <p class="text-lg text-graphite font-serif">{event.data.location}</p>
+          <p class="text-lg text-knole-ink font-serif">{event.data.location}</p>
         </div>
       </div>
     </header>
 
     <div
-      class="prose max-w-none prose-p:leading-relaxed prose-headings:font-serif prose-headings:font-normal prose-headings:text-heritage-currant"
+      class="prose max-w-none prose-p:leading-relaxed prose-headings:font-serif prose-headings:font-normal prose-headings:text-orchard-terracotta"
     >
       <Content />
     </div>
