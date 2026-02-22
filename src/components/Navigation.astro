@@ -18,36 +18,40 @@ const navLinks = [
 import Logo from './Logo.astro';
 ---
 
-<header class="sticky top-0 z-50 w-full bg-wealden-green shadow-lg">
+<header
+  class="sticky top-0 z-50 w-full glass border-b border-knole-ink/5 transition-all duration-300"
+>
   <div
-    class="container mx-auto flex h-20 items-center justify-between px-4 sm:px-6 lg:px-8"
+    class="container mx-auto flex h-20 items-center justify-between px-6 sm:px-8 lg:px-12"
   >
     <div class="flex items-center">
       <a
         href="/"
-        class="group flex items-center gap-3 text-2xl font-serif font-normal tracking-tight text-white"
+        class="group flex items-center gap-3 text-2xl font-serif font-normal tracking-tight text-knole-ink"
       >
-        <Logo class="h-8 w-8 transition-transform group-hover:scale-105" />
-        <span>Sevenoaks Saxes</span>
+        <Logo
+          class="h-9 w-9 text-wealden-green transition-transform duration-500 group-hover:rotate-[360deg] group-hover:scale-110"
+        />
+        <span class="font-serif">Sevenoaks Saxes</span>
       </a>
     </div>
 
     <!-- Desktop Navigation -->
-    <nav class="hidden md:flex md:items-center md:space-x-10">
+    <nav class="hidden md:flex md:items-center md:space-x-12">
       {
         navLinks.map((link) => (
           <div class="relative group">
             {link.dropdown ? (
-              <div class="flex items-center space-x-1 cursor-default py-2">
+              <div class="flex items-center space-x-1.5 cursor-default py-2">
                 <a
                   href={link.href}
-                  class="text-base font-medium text-white/90 hover:text-white transition-colors tracking-wide"
+                  class="text-base font-semibold text-knole-ink/80 hover:text-wealden-green transition-all duration-300 tracking-wide"
                 >
                   {link.name}
                 </a>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 text-white/80 group-hover:text-white transition-transform group-hover:rotate-180"
+                  class="h-4 w-4 text-knole-ink/40 group-hover:text-wealden-green transition-transform duration-300 group-hover:rotate-180"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -55,27 +59,29 @@ import Logo from './Logo.astro';
                   <path
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    stroke-width="2"
+                    stroke-width="2.5"
                     d="M19 9l-7 7-7-7"
                   />
                 </svg>
 
                 {/* Dropdown Menu */}
-                <div class="absolute left-0 top-full mt-0 w-56 rounded-sm bg-downs-chalk py-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-in-out shadow-2xl border border-knole-ink/5">
-                  {link.dropdown.map((sublink) => (
-                    <a
-                      href={sublink.href}
-                      class="block px-6 py-2 text-base text-knole-ink hover:bg-wealden-green hover:text-white transition-colors tracking-wide"
-                    >
-                      {sublink.name}
-                    </a>
-                  ))}
+                <div class="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-64 rounded-2xl bg-white/95 backdrop-blur-xl p-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-out shadow-2xl border border-knole-ink/5 scale-95 group-hover:scale-100 origin-top">
+                  <div class="space-y-1">
+                    {link.dropdown.map((sublink) => (
+                      <a
+                        href={sublink.href}
+                        class="block px-4 py-3 text-[15px] font-medium text-knole-ink/80 hover:bg-wealden-green/5 hover:text-wealden-green rounded-xl transition-all duration-200"
+                      >
+                        {sublink.name}
+                      </a>
+                    ))}
+                  </div>
                 </div>
               </div>
             ) : (
               <a
                 href={link.href}
-                class="text-base font-medium text-white/90 hover:text-white transition-colors py-2 tracking-wide"
+                class="text-base font-semibold text-knole-ink/80 hover:text-wealden-green transition-all duration-300 py-2 tracking-wide relative after:absolute after:bottom-1 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-wealden-green after:transition-all after:duration-300"
               >
                 {link.name}
               </a>
@@ -90,14 +96,14 @@ import Logo from './Logo.astro';
       <button
         id="mobile-menu-button"
         type="button"
-        class="inline-flex items-center justify-center rounded-md p-2 text-white hover:bg-wealden-green-dark transition-colors"
+        class="inline-flex items-center justify-center rounded-full p-2.5 text-knole-ink hover:bg-wealden-green/10 transition-colors"
         aria-controls="mobile-menu"
         aria-expanded="false"
       >
         <span class="sr-only">Open main menu</span>
         <svg
           id="menu-icon-open"
-          class="block h-6 w-6"
+          class="block h-7 w-7"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
@@ -112,7 +118,7 @@ import Logo from './Logo.astro';
         </svg>
         <svg
           id="menu-icon-close"
-          class="hidden h-6 w-6"
+          class="hidden h-7 w-7"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
@@ -130,25 +136,25 @@ import Logo from './Logo.astro';
   </div>
 
   <!-- Mobile Menu -->
-  <div class="hidden md:hidden" id="mobile-menu">
+  <div class="hidden md:hidden overflow-hidden" id="mobile-menu">
     <div
-      class="space-y-1 px-4 pb-6 pt-2 bg-wealden-green border-t border-wealden-green-dark shadow-inner"
+      class="px-6 pb-12 pt-4 bg-white border-t border-knole-ink/5 shadow-2xl space-y-6"
     >
       {
         navLinks.map((link) => (
-          <div class="py-1">
+          <div class="space-y-4">
             <a
               href={link.href}
-              class="block rounded-md px-3 py-2 text-lg font-medium text-white hover:bg-wealden-green-dark transition-colors tracking-wide"
+              class="block text-2xl font-serif text-knole-ink hover:text-wealden-green transition-colors"
             >
               {link.name}
             </a>
             {link.dropdown && (
-              <div class="ml-6 space-y-1 mt-1 border-l border-white/20">
+              <div class="grid grid-cols-1 gap-4 pl-4 border-l-2 border-wealden-green/20">
                 {link.dropdown.map((sublink) => (
                   <a
                     href={sublink.href}
-                    class="block rounded-md px-4 py-2 text-base font-medium text-white/90 hover:bg-wealden-green-dark transition-colors tracking-wide"
+                    class="block text-lg font-medium text-knole-ink/70 hover:text-wealden-green transition-colors"
                   >
                     {sublink.name}
                   </a>

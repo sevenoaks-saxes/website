@@ -1,13 +1,22 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
-import { getEntry, render } from 'astro:content';
+import EventCard from '../components/EventCard.astro';
+import { getEntry, getCollection, render } from 'astro:content';
 
 const entry = await getEntry('pages', 'home');
+const events = await getCollection('events');
 
 if (!entry) {
   return Astro.redirect('/404');
 }
+
+const upcomingEvents = events
+  .filter((event) => new Date(event.data.date) >= new Date())
+  .sort(
+    (a, b) => new Date(a.data.date).getTime() - new Date(b.data.date).getTime()
+  )
+  .slice(0, 3);
 
 const { Content } = await render(entry);
 ---
@@ -19,11 +28,119 @@ const { Content } = await render(entry);
     primaryCTA={entry.data.hero?.primary_cta || 'Upcoming Events'}
     secondaryCTA={entry.data.hero?.secondary_cta || 'Learn More'}
   />
-  <div class="prose-container py-16 md:py-24">
-    <div
-      class="prose max-w-none prose-p:leading-relaxed prose-headings:font-serif prose-headings:font-normal prose-headings:text-orchard-terracotta"
-    >
-      <Content />
+
+  <section class="bg-white section-padding">
+    <div class="prose-container">
+      <div
+        class="prose max-w-none prose-p:leading-relaxed prose-headings:font-serif prose-headings:font-normal prose-headings:text-orchard-terracotta"
+      >
+        <Content />
+      </div>
     </div>
-  </div>
+  </section>
+
+  {
+    upcomingEvents.length > 0 && (
+      <section class="bg-downs-chalk section-padding">
+        <div class="container mx-auto px-6 lg:px-12">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20">
+            <div class="max-w-2xl">
+              <h2 class="text-5xl md:text-6xl font-serif text-knole-ink m-0">
+                Upcoming Events
+              </h2>
+              <p class="text-xl text-knole-ink/60 mt-6 mb-0 font-medium">
+                Experience the sound of Sevenoaks Saxes live or join us for our
+                next play day.
+              </p>
+            </div>
+            <a
+              href="/events"
+              class="group inline-flex items-center gap-3 text-lg font-bold text-wealden-green uppercase tracking-[0.2em] transition-all"
+            >
+              View All Events
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 transition-transform group-hover:translate-x-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </a>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            {upcomingEvents.map((event) => (
+              <EventCard event={event} />
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <section
+    class="bg-knole-ink text-white section-padding relative overflow-hidden"
+  >
+    <!-- Subtle Background Pattern -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern
+            id="grid"
+            width="40"
+            height="40"
+            patternUnits="userSpaceOnUse"
+          >
+            <path
+              d="M 40 0 L 0 0 0 40"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1"></path>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#grid)"></rect>
+      </svg>
+    </div>
+
+    <div class="container mx-auto px-6 lg:px-12 relative z-10">
+      <div class="max-w-4xl mx-auto text-center space-y-12">
+        <h2
+          class="text-5xl md:text-7xl font-serif text-white m-0 leading-tight"
+        >
+          Join our community of <span class="text-wealden-green"
+            >saxophone enthusiasts</span
+          >
+        </h2>
+        <p
+          class="text-xl md:text-2xl text-white/70 max-w-2xl mx-auto leading-relaxed"
+        >
+          Whether you're a seasoned player or returning to the sax after years,
+          there's a chair waiting for you.
+        </p>
+        <div
+          class="flex flex-col sm:flex-row items-center justify-center gap-8 pt-8"
+        >
+          <a
+            href="/contact"
+            class="min-w-[220px] inline-flex items-center justify-center px-10 py-5 bg-wealden-green hover:bg-wealden-green-dark text-white font-sans font-semibold text-xl transition-all duration-300 rounded-full"
+          >
+            Get in Touch
+          </a>
+          <a
+            href="/about/our-groups"
+            class="min-w-[220px] inline-flex items-center justify-center px-10 py-5 border-2 border-white/20 hover:border-white text-white font-sans font-semibold text-xl transition-all duration-300 rounded-full"
+          >
+            Our Groups
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>

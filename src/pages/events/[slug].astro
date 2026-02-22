@@ -23,77 +23,86 @@ const formattedDate = new Date(event.data.date).toLocaleDateString('en-GB', {
 const typeColors = {
   concert:
     'text-orchard-terracotta border-orchard-terracotta/20 bg-orchard-terracotta-light/10',
-  rehearsal: 'text-wealden-green border-wealden-green/20 bg-wealden-green-light/10',
-  'play day': 'text-bluebell-haze border-bluebell-haze/20 bg-bluebell-haze-light/10',
+  rehearsal:
+    'text-wealden-green border-wealden-green/20 bg-wealden-green-light/10',
+  'play day':
+    'text-bluebell-haze border-bluebell-haze/20 bg-bluebell-haze-light/10',
   other: 'text-knole-ink border-knole-ink/20 bg-downs-chalk',
 };
 ---
 
 <Layout title={event.data.name} description={event.data.description}>
-  <div class="prose-container py-12 md:py-20">
-    <a
-      href="/events"
-      class="inline-flex items-center text-[11px] font-bold text-orchard-terracotta hover:text-orchard-terracotta-dark mb-12 transition-colors uppercase tracking-[0.2em]"
-    >
-      <svg
-        class="mr-2 h-3 w-3"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
+  <section class="bg-downs-chalk pt-32 pb-24 border-b border-knole-ink/5">
+    <div class="prose-container">
+      <a
+        href="/events"
+        class="group inline-flex items-center text-[10px] font-bold text-knole-ink/40 hover:text-wealden-green mb-12 transition-all uppercase tracking-[0.3em]"
       >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-      </svg>
-      Return to events
-    </a>
+        <svg
+          class="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2.5"
+            d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+        </svg>
+        All Events
+      </a>
 
-    <header class="mb-16">
-      <div class="flex items-center space-x-2 mb-8">
+      <div class="flex items-center space-x-3 mb-8 animate-fade-in-up">
         <span
-          class={`inline-flex items-center px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] border ${typeColors[event.data.type] || typeColors.other}`}
+          class={`inline-flex items-center px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.25em] rounded-full border ${typeColors[event.data.type] || typeColors.other}`}
         >
           {event.data.type}
         </span>
       </div>
-      <h1 class="mb-12">{event.data.name}</h1>
+
+      <h1 class="text-knole-ink m-0 animate-fade-in-up">{event.data.name}</h1>
 
       <div
-        class="grid grid-cols-1 sm:grid-cols-2 gap-12 bg-downs-chalk/30 p-12 rounded-sm border border-knole-ink/5"
+        class="grid grid-cols-1 sm:grid-cols-3 gap-10 mt-16 animate-fade-in-up stagger-1"
       >
         <div>
           <h2
-            class="text-[10px] font-bold text-orchard-terracotta uppercase tracking-[0.2em] mb-4 mt-0"
+            class="text-[10px] font-bold text-wealden-green uppercase tracking-[0.25em] mb-3 mt-0"
           >
             Date
           </h2>
-          <p class="text-lg text-knole-ink font-serif">{formattedDate}</p>
+          <p class="text-xl text-knole-ink font-serif">{formattedDate}</p>
         </div>
         <div>
           <h2
-            class="text-[10px] font-bold text-orchard-terracotta uppercase tracking-[0.2em] mb-4 mt-0"
+            class="text-[10px] font-bold text-wealden-green uppercase tracking-[0.25em] mb-3 mt-0"
           >
             Time
           </h2>
-          <p class="text-lg text-knole-ink font-serif">{event.data.time}</p>
+          <p class="text-xl text-knole-ink font-serif">{event.data.time}</p>
         </div>
-        <div class="sm:col-span-2">
+        <div>
           <h2
-            class="text-[10px] font-bold text-orchard-terracotta uppercase tracking-[0.2em] mb-4 mt-0"
+            class="text-[10px] font-bold text-wealden-green uppercase tracking-[0.25em] mb-3 mt-0"
           >
             Location
           </h2>
-          <p class="text-lg text-knole-ink font-serif">{event.data.location}</p>
+          <p class="text-xl text-knole-ink font-serif leading-relaxed">
+            {event.data.location}
+          </p>
         </div>
       </div>
-    </header>
-
-    <div
-      class="prose max-w-none prose-p:leading-relaxed prose-headings:font-serif prose-headings:font-normal prose-headings:text-orchard-terracotta"
-    >
-      <Content />
     </div>
-  </div>
+  </section>
+
+  <section class="bg-white py-24 md:py-32">
+    <div class="prose-container">
+      <div
+        class="prose max-w-none prose-p:leading-relaxed prose-headings:font-serif prose-headings:font-normal prose-headings:text-orchard-terracotta prose-img:rounded-3xl prose-img:shadow-2xl"
+      >
+        <Content />
+      </div>
+    </div>
+  </section>
 </Layout>

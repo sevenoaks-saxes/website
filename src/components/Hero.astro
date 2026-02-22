@@ -10,35 +10,59 @@ const { title, description, primaryCTA, secondaryCTA } = Astro.props;
 ---
 
 <section
-  class="relative w-full min-h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden bg-white"
+  class="relative w-full min-h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden bg-white py-20"
 >
+  <!-- Animated Mesh Background -->
+  <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+    <div
+      class="absolute top-[-10%] left-[-10%] w-[70%] h-[70%] rounded-full bg-wealden-green/15 blur-[120px] animate-mesh-float-1"
+    >
+    </div>
+    <div
+      class="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] rounded-full bg-orchard-terracotta/15 blur-[120px] animate-mesh-float-2"
+    >
+    </div>
+    <div
+      class="absolute top-[20%] right-[10%] w-[40%] h-[40%] rounded-full bg-bluebell-haze/15 blur-[100px] animate-mesh-float-3"
+    >
+    </div>
+    <!-- Grain Overlay -->
+    <div
+      class="absolute inset-0 opacity-[0.03] mix-blend-multiply pointer-events-none"
+      style="background-image: url('data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E');"
+    >
+    </div>
+  </div>
+
   <!-- Content -->
   <div class="relative z-10 container mx-auto px-4 text-center">
-    <div class="max-w-4xl mx-auto space-y-8">
-      <h1
-        class="text-orchard-terracotta text-5xl md:text-7xl font-serif font-normal leading-[1.1] tracking-tight"
-      >
-        {title}
-      </h1>
+    <div class="max-w-5xl mx-auto space-y-12">
+      <div class="overflow-hidden">
+        <h1
+          class="text-orchard-terracotta text-6xl md:text-8xl lg:text-9xl font-serif font-normal leading-[1] tracking-tight animate-fade-in-up"
+        >
+          {title}
+        </h1>
+      </div>
 
       <p
-        class="text-knole-ink text-xl md:text-2xl font-sans font-medium max-w-2xl mx-auto leading-relaxed"
+        class="text-knole-ink text-xl md:text-3xl font-sans font-normal max-w-3xl mx-auto leading-relaxed opacity-0 animate-fade-in-up stagger-1"
       >
         {description}
       </p>
 
       <div
-        class="flex flex-col sm:flex-row items-center justify-center gap-6 pt-6"
+        class="flex flex-col sm:flex-row items-center justify-center gap-8 pt-8 opacity-0 animate-fade-in-up stagger-2"
       >
         <a
           href="/events"
-          class="min-w-[200px] inline-flex items-center justify-center px-8 py-4 bg-wealden-green hover:bg-wealden-green-dark text-white font-sans font-semibold text-lg transition-all duration-300 rounded-md"
+          class="group relative min-w-[220px] inline-flex items-center justify-center px-10 py-5 bg-wealden-green text-white font-sans font-semibold text-xl transition-all duration-500 rounded-full hover:bg-wealden-green-dark hover:scale-105 active:scale-95 shadow-xl shadow-wealden-green/20"
         >
           {primaryCTA}
         </a>
         <a
           href="/about"
-          class="min-w-[200px] inline-flex items-center justify-center px-8 py-4 bg-knole-ink hover:bg-knole-ink-dark text-white font-sans font-semibold text-lg transition-all duration-300 rounded-md"
+          class="group relative min-w-[220px] inline-flex items-center justify-center px-10 py-5 bg-knole-ink text-white font-sans font-semibold text-xl transition-all duration-500 rounded-full hover:bg-knole-ink-dark hover:scale-105 active:scale-95 shadow-xl shadow-knole-ink/20"
         >
           {secondaryCTA}
         </a>
@@ -46,3 +70,49 @@ const { title, description, primaryCTA, secondaryCTA } = Astro.props;
     </div>
   </div>
 </section>
+
+<style>
+  @keyframes mesh-float-1 {
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+    33% {
+      transform: translate(10%, 10%) scale(1.1);
+    }
+    66% {
+      transform: translate(-5%, 15%) scale(0.9);
+    }
+  }
+  @keyframes mesh-float-2 {
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+    33% {
+      transform: translate(-15%, -5%) scale(0.9);
+    }
+    66% {
+      transform: translate(10%, -10%) scale(1.1);
+    }
+  }
+  @keyframes mesh-float-3 {
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+    50% {
+      transform: translate(-10%, 10%) scale(1.2);
+    }
+  }
+
+  .animate-mesh-float-1 {
+    animation: mesh-float-1 20s ease-in-out infinite;
+  }
+  .animate-mesh-float-2 {
+    animation: mesh-float-2 25s ease-in-out infinite;
+  }
+  .animate-mesh-float-3 {
+    animation: mesh-float-3 18s ease-in-out infinite;
+  }
+</style>
