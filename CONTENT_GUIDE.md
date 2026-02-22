@@ -36,7 +36,7 @@ The "About" section uses a special folder. Files placed in `src/content/pages/ab
 
 ### Home Page Hero
 
-The home page (`home.md`) has extra settings for the large "Hero" section at the top:
+The home page (`home.md`) has extra settings for the large "Hero" section at the top, including the customizable animated mesh background:
 
 ```yaml
 hero:
@@ -44,6 +44,12 @@ hero:
   description: 'A community saxophone ensemble and orchestra.'
   primary_cta: 'Upcoming Events'
   secondary_cta: 'Learn More'
+  mesh:
+    colors: ['#f5d6d6', '#e7f0e7', '#e8f4f5', '#faece1'] # Optional: customize colors
+    speed: 25 # Optional: animation speed in seconds
+    complexity: 8 # Optional: number of blobs (2-10)
+    opacity: 1 # Optional: overall visibility (0-1)
+    grain: true # Optional: toggle grain effect
 ```
 
 ---

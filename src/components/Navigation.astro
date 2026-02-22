@@ -14,8 +14,6 @@ const navLinks = [
   { name: 'Events', href: '/events' },
   { name: 'Contact us', href: '/contact' },
 ];
-
-import Logo from './Logo.astro';
 ---
 
 <header class="sticky top-0 z-50 w-full bg-heritage-currant shadow-lg">
@@ -25,10 +23,9 @@ import Logo from './Logo.astro';
     <div class="flex items-center">
       <a
         href="/"
-        class="group flex items-center gap-3 text-2xl font-serif font-normal tracking-tight text-white"
+        class="text-2xl font-serif font-normal tracking-tight text-white"
       >
-        <Logo class="h-8 w-8 transition-transform group-hover:scale-105" />
-        <span>Sevenoaks Saxes</span>
+        Sevenoaks Saxes
       </a>
     </div>
 

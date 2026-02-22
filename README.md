@@ -119,8 +119,8 @@ The Home page Hero section supports a customizable CSS gradient mesh background.
 | :--- | :--- | :--- | :--- |
 | `colors` | `array` | Brand colors | An array of hex color strings for the mesh blobs. |
 | `speed` | `number` | `20` | The duration in seconds for a full animation cycle. |
-| `complexity` | `number` | `6` | Number of mesh blobs (between 2 and 10). |
-| `opacity` | `number` | `0.8` | Overall opacity of the mesh background (0 to 1). |
+| `complexity` | `number` | `8` | Number of mesh blobs (between 2 and 10). |
+| `opacity` | `number` | `1.0` | Overall opacity of the mesh background (0 to 1). |
 | `grain` | `boolean` | `true` | Whether to show the subtle noise/grain overlay. |
 
 Example configuration:

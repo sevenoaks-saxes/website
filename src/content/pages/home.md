@@ -7,10 +7,9 @@ hero:
   primary_cta: Upcoming Events
   secondary_cta: Learn More
   mesh:
-    colors: ['#9B1B1B', '#5B6D5B', '#7EACB5', '#416A71']
     speed: 25
-    complexity: 6
-    opacity: 0.8
+    complexity: 8
+    opacity: 1
     grain: true
 ---
 

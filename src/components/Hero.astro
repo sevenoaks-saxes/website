@@ -15,82 +15,53 @@ interface Props {
 
 const { title, description, primaryCTA, secondaryCTA, mesh } = Astro.props;
 
-// Default brand colors
+// Default "Spring" brand colors inspired by the poster
 const defaultColors = [
-  '#9B1B1B', // Heritage Currant
-  '#5B6D5B', // Sage Ash
-  '#7EACB5', // Mist Blue
-  '#416A71', // Mist Blue Dark
+  '#E8B7B7', // Light Heritage Currant (Pinkish)
+  '#C5D1C5', // Light Sage Ash
+  '#D0E4E8', // Light Mist Blue
+  '#F5E6D3', // Soft Peach/Orange
+  '#E2D5E8', // Soft Lavender
 ];
 
 const colors = mesh?.colors && mesh.colors.length > 0 ? mesh.colors : defaultColors;
 const speed = mesh?.speed ?? 20;
-const complexity = Math.max(2, Math.min(10, mesh?.complexity ?? 6));
-const opacity = mesh?.opacity ?? 0.8;
+const complexity = Math.max(2, Math.min(10, mesh?.complexity ?? 8)); // Complexity between 2 and 10
+const opacity = mesh?.opacity ?? 1; // Default to full opacity for light theme
 const showGrain = mesh?.grain ?? true;
-
-// Generate blobs with deterministic pseudo-random positions/movements
-const blobs = Array.from({ length: complexity }).map((_, i) => {
-  const color = colors[i % colors.length];
-  const delay = (i * -speed) / complexity;
-  const duration = speed + (i % (speed / 2 || 1));
-
-  // Spread initial positions across the container
-  const top = 10 + (i * 70) / complexity + (i % 3) * 5;
-  const left = 10 + ((i * 137) % 80);
-  const size = 30 + (i % 4) * 15;
-
-  return {
-    color,
-    delay: `${delay}s`,
-    duration: `${duration}s`,
-    top: `${top}%`,
-    left: `${left}%`,
-    size: `${size}%`,
-  };
-});
 ---
 
 <section
-  class="relative w-full min-h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden bg-graphite"
+  class="relative w-full min-h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden bg-white"
 >
   <!-- Mesh Background Container -->
-  <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden" style={`opacity: ${opacity};`}>
+  <div
+    id="mesh-bg"
+    class="absolute inset-0 z-0 pointer-events-none overflow-hidden"
+    style={`opacity: ${opacity};`}
+    data-colors={JSON.stringify(colors)}
+    data-speed={speed}
+    data-complexity={complexity}
+  >
     <!-- Blobs with blur -->
     <div class="absolute inset-0 mesh-container">
-      {blobs.map((blob) => (
-        <div
-          class="blob absolute rounded-full mix-blend-screen opacity-60"
-          style={{
-            backgroundColor: blob.color,
-            width: blob.size,
-            height: blob.size,
-            top: blob.top,
-            left: blob.left,
-            '--duration': blob.duration,
-            '--delay': blob.delay,
-          }}
-        />
-      ))}
+      <!-- Blobs injected by client script for randomness -->
     </div>
 
     {showGrain && <div class="absolute inset-0 grain" />}
-
-    <!-- Subtle overlay for contrast -->
-    <div class="absolute inset-0 bg-black/10" />
   </div>
 
   <!-- Content Overlay -->
-  <div class="relative z-10 container mx-auto px-4 text-center text-white">
+  <div class="relative z-10 container mx-auto px-4 text-center text-graphite">
     <div class="max-w-4xl mx-auto space-y-8">
       <h1
-        class="!text-white text-5xl md:text-7xl font-serif font-normal leading-[1.1] tracking-tight drop-shadow-2xl"
+        class="!text-graphite text-5xl md:text-7xl font-serif font-normal leading-[1.1] tracking-tight"
       >
         {title}
       </h1>
 
       <p
-        class="text-xl md:text-2xl font-sans font-medium max-w-2xl mx-auto leading-relaxed drop-shadow-xl opacity-90"
+        class="text-xl md:text-2xl font-sans font-medium max-w-2xl mx-auto leading-relaxed opacity-90"
       >
         {description}
       </p>
@@ -115,9 +86,61 @@ const blobs = Array.from({ length: complexity }).map((_, i) => {
   </div>
 </section>
 
+<script>
+  function initMesh() {
+    const container = document.getElementById('mesh-bg');
+    const blobContainer = container?.querySelector('.mesh-container');
+    if (!container || !blobContainer) return;
+
+    const colors = JSON.parse(container.dataset.colors || '[]');
+    const speed = parseInt(container.dataset.speed || '20');
+    const complexity = parseInt(container.dataset.complexity || '8');
+
+    // Clear any existing blobs (though there shouldn't be any)
+    blobContainer.innerHTML = '';
+
+    for (let i = 0; i < complexity; i++) {
+      const blob = document.createElement('div');
+      blob.className = 'blob absolute rounded-full mix-blend-multiply opacity-70';
+
+      const color = colors[i % colors.length];
+      const size = 40 + Math.random() * 40; // Larger blobs: 40% to 80%
+      const top = Math.random() * 100 - 20; // Allow it to bleed off edge
+      const left = Math.random() * 100 - 20;
+
+      const duration = speed + Math.random() * speed;
+      const delay = Math.random() * -speed;
+
+      // Random movement variation
+      const tx = Math.random() * 40 - 20;
+      const ty = Math.random() * 40 - 20;
+      const scale = 0.8 + Math.random() * 0.4;
+
+      blob.style.backgroundColor = color;
+      blob.style.width = `${size}%`;
+      blob.style.height = `${size}%`;
+      blob.style.top = `${top}%`;
+      blob.style.left = `${left}%`;
+      blob.style.setProperty('--duration', `${duration}s`);
+      blob.style.setProperty('--delay', `${delay}s`);
+      blob.style.setProperty('--tx', `${tx}%`);
+      blob.style.setProperty('--ty', `${ty}%`);
+      blob.style.setProperty('--scale', `${scale}`);
+
+      blobContainer.appendChild(blob);
+    }
+  }
+
+  // Run on initial load
+  initMesh();
+
+  // Re-run on view transitions if enabled
+  document.addEventListener('astro:after-swap', initMesh);
+</script>
+
 <style>
   .mesh-container {
-    filter: blur(100px);
+    filter: blur(120px); /* Increased blur for more fluidity */
     /* Forcing a hardware-accelerated layer */
     transform: translate3d(0, 0, 0);
     width: 100%;
@@ -132,13 +155,10 @@ const blobs = Array.from({ length: complexity }).map((_, i) => {
 
   @keyframes blob-movement {
     0% {
-      transform: translate(-10%, -10%) scale(1);
-    }
-    50% {
-      transform: translate(15%, 10%) scale(1.1);
+      transform: translate(0, 0) scale(1);
     }
     100% {
-      transform: translate(-5%, 20%) scale(0.9);
+      transform: translate(var(--tx), var(--ty)) scale(var(--scale));
     }
   }
 
