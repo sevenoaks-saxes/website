@@ -33,98 +33,66 @@ const typeColors = {
 ---
 
 <Layout title={event.data.name} description={event.data.description}>
-  <section class="relative w-full overflow-hidden bg-white pt-32 pb-24 border-b border-knole-ink/5">
-    <!-- Animated Mesh Background -->
-    <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-      <div
-        class="absolute top-[-20%] right-[-10%] w-[60%] h-[80%] rounded-full bg-bluebell-haze/20 blur-[120px] animate-mesh-float-1"
+  <PageHeader title={event.data.name}>
+    <a
+      slot="before"
+      href="/events"
+      class="group inline-flex items-center text-[10px] font-bold text-knole-ink/70 hover:text-wealden-green mb-12 transition-all uppercase tracking-[0.3em]"
+    >
+      <svg
+        class="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
       >
-      </div>
-      <div
-        class="absolute bottom-[-20%] left-[-10%] w-[50%] h-[70%] rounded-full bg-wealden-green/20 blur-[120px] animate-mesh-float-2"
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2.5"
+          d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+      </svg>
+      All Events
+    </a>
+
+    <div slot="before" class="flex items-center space-x-3 mb-8 animate-fade-in-up">
+      <span
+        class={`inline-flex items-center px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.25em] rounded-full border ${typeColors[event.data.type] || typeColors.other}`}
       >
-      </div>
+        {event.data.type}
+      </span>
     </div>
 
-    <div class="relative z-10 prose-container">
-      <a
-        href="/events"
-        class="group inline-flex items-center text-[10px] font-bold text-knole-ink/40 hover:text-wealden-green mb-12 transition-all uppercase tracking-[0.3em]"
-      >
-        <svg
-          class="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
+    <div
+      class="grid grid-cols-1 sm:grid-cols-3 gap-10 mt-16 animate-fade-in-up stagger-1"
+    >
+      <div>
+        <h2
+          class="text-[10px] font-bold text-wealden-green uppercase tracking-[0.25em] mb-3 mt-0"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2.5"
-            d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-        </svg>
-        All Events
-      </a>
-
-      <div class="flex items-center space-x-3 mb-8 animate-fade-in-up">
-        <span
-          class={`inline-flex items-center px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.25em] rounded-full border ${typeColors[event.data.type] || typeColors.other}`}
-        >
-          {event.data.type}
-        </span>
+          Date
+        </h2>
+        <p class="text-xl text-knole-ink font-serif">{formattedDate}</p>
       </div>
-
-      <h1 class="text-knole-ink m-0 animate-fade-in-up">{event.data.name}</h1>
-
-      <div
-        class="grid grid-cols-1 sm:grid-cols-3 gap-10 mt-16 animate-fade-in-up stagger-1"
-      >
-        <div>
-          <h2
-            class="text-[10px] font-bold text-wealden-green uppercase tracking-[0.25em] mb-3 mt-0"
-          >
-            Date
-          </h2>
-          <p class="text-xl text-knole-ink font-serif">{formattedDate}</p>
-        </div>
-        <div>
-          <h2
-            class="text-[10px] font-bold text-wealden-green uppercase tracking-[0.25em] mb-3 mt-0"
-          >
-            Time
-          </h2>
-          <p class="text-xl text-knole-ink font-serif">{event.data.time}</p>
-        </div>
-        <div>
-          <h2
-            class="text-[10px] font-bold text-wealden-green uppercase tracking-[0.25em] mb-3 mt-0"
-          >
-            Location
-          </h2>
-          <p class="text-xl text-knole-ink font-serif leading-relaxed">
-            {event.data.location}
-          </p>
-        </div>
+      <div>
+        <h2
+          class="text-[10px] font-bold text-wealden-green uppercase tracking-[0.25em] mb-3 mt-0"
+        >
+          Time
+        </h2>
+        <p class="text-xl text-knole-ink font-serif">{event.data.time}</p>
+      </div>
+      <div>
+        <h2
+          class="text-[10px] font-bold text-wealden-green uppercase tracking-[0.25em] mb-3 mt-0"
+        >
+          Location
+        </h2>
+        <p class="text-xl text-knole-ink font-serif leading-relaxed">
+          {event.data.location}
+        </p>
       </div>
     </div>
-  </section>
-
-  <style>
-    @keyframes mesh-float-1 {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      50% { transform: translate(-5%, 5%) scale(1.1); }
-    }
-    @keyframes mesh-float-2 {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      50% { transform: translate(5%, -5%) scale(1.1); }
-    }
-    .animate-mesh-float-1 {
-      animation: mesh-float-1 25s ease-in-out infinite;
-    }
-    .animate-mesh-float-2 {
-      animation: mesh-float-2 30s ease-in-out infinite;
-    }
-  </style>
+  </PageHeader>
 
   <section class="bg-white py-24 md:py-32">
     <div class="prose-container">

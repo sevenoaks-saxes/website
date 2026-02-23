@@ -65,33 +65,35 @@
   --tw-prose-pre-bg: var(--color-knole-ink);
 }
 
-body {
-  @apply font-sans antialiased text-knole-ink bg-white;
-}
+@layer base {
+  body {
+    @apply font-sans antialiased text-knole-ink bg-white;
+  }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  @apply font-serif font-normal text-knole-ink tracking-tight;
-}
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif font-normal text-knole-ink tracking-tight;
+  }
 
-h1 {
-  @apply text-6xl md:text-8xl leading-[1] mb-12 tracking-tight;
-}
+  h1 {
+    @apply text-6xl md:text-8xl leading-[1] mb-12 tracking-tight;
+  }
 
-h2 {
-  @apply text-5xl md:text-6xl mt-24 mb-12 tracking-tight;
-}
+  h2 {
+    @apply text-5xl md:text-6xl mt-24 mb-12 tracking-tight;
+  }
 
-h3 {
-  @apply text-3xl md:text-4xl mt-16 mb-8 tracking-tight;
-}
+  h3 {
+    @apply text-3xl md:text-4xl mt-16 mb-8 tracking-tight;
+  }
 
-p {
-  @apply mb-8 text-lg leading-relaxed text-knole-ink/90;
+  p {
+    @apply mb-8 text-lg leading-relaxed text-knole-ink/90;
+  }
 }
 
 html {

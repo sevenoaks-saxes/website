@@ -48,7 +48,7 @@ const { Content } = await render(entry);
               <h2 class="text-5xl md:text-6xl font-serif text-knole-ink m-0">
                 Upcoming Events
               </h2>
-              <p class="text-xl text-knole-ink/60 mt-6 mb-0 font-medium">
+              <p class="text-xl text-knole-ink/70 mt-6 mb-0 font-medium">
                 Experience the sound of Sevenoaks Saxes live or join us for our
                 next play day.
               </p>
@@ -88,9 +88,12 @@ const { Content } = await render(entry);
   <section
     class="bg-knole-ink text-white section-padding relative overflow-hidden"
   >
+    <!-- Seamless transition from light section -->
+    <div class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-downs-chalk to-transparent opacity-10"></div>
+
     <!-- Animated Mesh Background for Dark Section -->
     <div
-      class="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-20"
+      class="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-30"
     >
       <div
         class="absolute top-[-10%] left-[-10%] w-[70%] h-[70%] rounded-full bg-wealden-green blur-[120px] animate-mesh-float-1"
@@ -105,12 +108,12 @@ const { Content } = await render(entry);
     <div class="container mx-auto px-6 lg:px-12 relative z-10">
       <div class="max-w-5xl mx-auto text-center space-y-12">
         <h2 class="text-6xl md:text-8xl font-serif text-white m-0 leading-[1.1]">
-          Join our community of <span class="text-bluebell-haze"
+          Join our community of <span class="text-bluebell-haze-light"
             >saxophone enthusiasts</span
           >
         </h2>
         <p
-          class="text-xl md:text-3xl text-white/60 max-w-3xl mx-auto leading-relaxed font-medium"
+          class="text-xl md:text-3xl text-white/90 max-w-3xl mx-auto leading-relaxed font-medium"
         >
           Whether you're a seasoned player or returning to the sax after years,
           there's a chair waiting for you.

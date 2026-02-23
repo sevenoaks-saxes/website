@@ -37,12 +37,12 @@ import Logo from './Logo.astro';
     </div>
 
     <!-- Desktop Navigation -->
-    <nav class="hidden md:flex md:items-center md:space-x-12">
+    <nav class="hidden md:flex md:items-center md:space-x-12 h-full">
       {
         navLinks.map((link) => (
-          <div class="relative group">
+          <div class="relative group h-full flex items-center">
             {link.dropdown ? (
-              <div class="flex items-center space-x-1.5 cursor-default py-7">
+              <div class="flex items-center space-x-1.5 cursor-default h-full">
                 <a
                   href={link.href}
                   class="text-base font-semibold text-knole-ink/80 hover:text-wealden-green transition-all duration-300 tracking-wide relative after:absolute after:bottom-[-4px] after:left-0 after:h-0.5 after:w-0 group-hover:after:w-full after:bg-wealden-green after:transition-all after:duration-300"
@@ -51,7 +51,7 @@ import Logo from './Logo.astro';
                 </a>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 text-knole-ink/40 group-hover:text-wealden-green transition-transform duration-300 group-hover:rotate-180"
+                  class="h-4 w-4 text-knole-ink/60 group-hover:text-wealden-green transition-transform duration-300 group-hover:rotate-180"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -65,23 +65,25 @@ import Logo from './Logo.astro';
                 </svg>
 
                 {/* Dropdown Menu */}
-                <div class="absolute left-1/2 -translate-x-1/2 top-[100%] mt-[-10px] pt-[10px] w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-out scale-95 group-hover:scale-100 origin-top z-50">
-                  <div class="bg-white/95 backdrop-blur-xl p-3 rounded-2xl shadow-2xl border border-knole-ink/5 space-y-1">
-                    {link.dropdown.map((sublink) => (
-                      <a
-                        href={sublink.href}
-                        class="block px-4 py-3 text-[15px] font-medium text-knole-ink/80 hover:bg-wealden-green/5 hover:text-wealden-green rounded-xl transition-all duration-200"
-                      >
-                        {sublink.name}
-                      </a>
-                    ))}
+                <div class="absolute left-1/2 -translate-x-1/2 top-full w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-out scale-95 group-hover:scale-100 origin-top z-50">
+                  <div class="pt-4">
+                    <div class="glass p-3 rounded-2xl shadow-2xl space-y-1">
+                      {link.dropdown.map((sublink) => (
+                        <a
+                          href={sublink.href}
+                          class="block px-4 py-3 text-[15px] font-medium text-knole-ink hover:bg-wealden-green/5 hover:text-wealden-green rounded-xl transition-all duration-200"
+                        >
+                          {sublink.name}
+                        </a>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
             ) : (
               <a
                 href={link.href}
-                class="text-base font-semibold text-knole-ink/80 hover:text-wealden-green transition-all duration-300 py-7 tracking-wide relative after:absolute after:bottom-[25px] after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-wealden-green after:transition-all after:duration-300"
+                class="text-base font-semibold text-knole-ink/80 hover:text-wealden-green transition-all duration-300 tracking-wide relative after:absolute after:bottom-[-4px] after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-wealden-green after:transition-all after:duration-300"
               >
                 {link.name}
               </a>

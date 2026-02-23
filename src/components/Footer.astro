@@ -1,37 +1,45 @@
 ---
+import Logo from './Logo.astro';
 const today = new Date();
 ---
 
-<footer class="bg-knole-ink text-white py-16 md:py-20">
+<footer class="bg-knole-ink text-white py-12 md:py-16">
   <div class="container mx-auto px-6 lg:px-12">
-    <div class="flex flex-col md:flex-row justify-between gap-12 md:gap-8">
-      <div class="max-w-md">
+    <div
+      class="flex flex-col md:flex-row items-center justify-between gap-8 border-b border-white/10 pb-12 mb-12"
+    >
+      <a
+        href="/"
+        class="group flex items-center gap-3 text-2xl font-serif font-normal tracking-tight text-white transition-colors hover:text-wealden-green-light"
+      >
+        <Logo
+          class="h-9 w-9 text-wealden-green transition-transform duration-500 group-hover:scale-110"
+        />
+        <span class="font-serif">Sevenoaks Saxes</span>
+      </a>
+
+      <div class="flex items-center gap-8">
         <a
-          href="/"
-          class="text-2xl font-serif font-normal text-white mb-6 block tracking-tight hover:text-wealden-green transition-colors"
+          href="/privacy"
+          class="text-sm font-semibold text-white hover:text-wealden-green-light transition-colors"
+          >Privacy Policy</a
         >
-          Sevenoaks Saxes
-        </a>
-        <p class="text-base text-white/50 leading-relaxed mb-8">
-          A vibrant community saxophone ensemble and orchestra based in Kent, dedicated to musical excellence and community.
+      </div>
+    </div>
+
+    <div
+      class="flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left"
+    >
+      <div class="space-y-1">
+        <p class="text-sm font-medium text-wealden-green">
+          Rehearsing monthly in Sevenoaks
         </p>
-        <div class="flex gap-8">
-          <a href="/about" class="text-sm font-semibold text-white/70 hover:text-wealden-green transition-colors">About</a>
-          <a href="/events" class="text-sm font-semibold text-white/70 hover:text-wealden-green transition-colors">Events</a>
-          <a href="/contact" class="text-sm font-semibold text-white/70 hover:text-wealden-green transition-colors">Contact</a>
-          <a href="/privacy" class="text-sm font-semibold text-white/70 hover:text-wealden-green transition-colors">Privacy</a>
-        </div>
+        <p class="text-xs text-white/40">The Drive Methodist Church, TN13 3AB</p>
       </div>
 
-      <div class="flex flex-col md:items-end justify-between py-1">
-        <div class="text-left md:text-right">
-          <p class="text-sm font-medium text-wealden-green mb-2">Rehearsing monthly in Sevenoaks</p>
-          <p class="text-sm text-white/40">The Drive Methodist Church, TN13 3AB</p>
-        </div>
-        <p class="text-xs font-bold text-white/20 tracking-[0.2em] mt-8 md:mt-0">
-          &copy; {today.getFullYear()} Sevenoaks Saxes. Dedicated to the Art of the Saxophone.
-        </p>
-      </div>
+      <p class="text-[10px] font-bold text-white/20 tracking-[0.2em]">
+        &copy; {today.getFullYear()} Sevenoaks Saxes. All rights reserved.
+      </p>
     </div>
   </div>
 </footer>
