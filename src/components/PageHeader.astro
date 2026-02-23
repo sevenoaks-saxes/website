@@ -7,14 +7,7 @@ interface Props {
 const { title, description } = Astro.props;
 ---
 
-<section class="relative w-full overflow-hidden bg-white pt-48 pb-32 border-b border-knole-ink/5">
-  <!-- Dramatic Watermark Title -->
-  <div class="absolute top-12 left-0 w-full overflow-hidden pointer-events-none select-none z-0 opacity-[0.07]">
-    <span class="text-[20vw] font-serif text-knole-ink leading-none whitespace-nowrap -ml-4">
-      {title}
-    </span>
-  </div>
-
+<section class="relative w-full overflow-hidden bg-white pt-24 pb-16 border-b border-knole-ink/5">
   <!-- Animated Mesh Background -->
   <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
     <div
@@ -29,31 +22,16 @@ const { title, description } = Astro.props;
 
   <div class="relative z-10 prose-container">
     <slot name="before" />
-    <h1 class="text-knole-ink m-0 animate-fade-in-up text-6xl md:text-8xl tracking-tight">{title}</h1>
-    {
-      description && (
-        <p class="text-2xl md:text-3xl text-knole-ink/70 mt-8 max-w-3xl font-medium leading-relaxed animate-fade-in-up stagger-1">
-          {description}
-        </p>
-      )
-    }
+    <div class="animate-fade-in-up">
+      <h1 class="text-knole-ink m-0 text-4xl md:text-5xl lg:text-6xl tracking-tight">{title}</h1>
+      {
+        description && (
+          <p class="text-lg md:text-xl text-knole-ink/70 mt-6 max-w-2xl font-medium leading-relaxed">
+            {description}
+          </p>
+        )
+      }
+    </div>
     <slot />
   </div>
 </section>
-
-<style>
-  @keyframes mesh-float-1 {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    50% { transform: translate(-5%, 5%) scale(1.1); }
-  }
-  @keyframes mesh-float-2 {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    50% { transform: translate(5%, -5%) scale(1.1); }
-  }
-  .animate-mesh-float-1 {
-    animation: mesh-float-1 25s ease-in-out infinite;
-  }
-  .animate-mesh-float-2 {
-    animation: mesh-float-2 30s ease-in-out infinite;
-  }
-</style>

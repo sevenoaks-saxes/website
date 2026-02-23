@@ -10,15 +10,8 @@ const { title, description, primaryCTA, secondaryCTA } = Astro.props;
 ---
 
 <section
-  class="relative w-full min-h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden bg-white py-20"
+  class="relative w-full min-h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden bg-white py-24"
 >
-  <!-- Dramatic Watermark Title -->
-  <div class="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none select-none z-0 opacity-[0.07]">
-    <span class="font-serif text-[15vw] text-knole-ink whitespace-nowrap leading-none transform -rotate-3 translate-y-8">
-      The Sound of Sevenoaks
-    </span>
-  </div>
-
   <!-- Animated Mesh Background -->
   <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
     <div
@@ -42,34 +35,34 @@ const { title, description, primaryCTA, secondaryCTA } = Astro.props;
   </div>
 
   <!-- Content -->
-  <div class="relative z-10 container mx-auto px-4 text-center">
-    <div class="max-w-5xl mx-auto space-y-12">
+  <div class="relative z-10 container mx-auto px-6 text-center">
+    <div class="max-w-4xl mx-auto space-y-10">
       <div class="overflow-hidden">
         <h1
-          class="text-knole-ink text-6xl md:text-8xl lg:text-9xl font-serif font-normal leading-[1] tracking-tight animate-fade-in-up"
+          class="text-knole-ink text-5xl md:text-6xl lg:text-7xl font-serif font-normal leading-[1.1] tracking-tight animate-fade-in-up"
         >
           {title}
         </h1>
       </div>
 
       <p
-        class="text-knole-ink text-xl md:text-3xl font-sans font-normal max-w-3xl mx-auto leading-relaxed opacity-0 animate-fade-in-up stagger-1"
+        class="text-knole-ink text-lg md:text-xl font-sans font-normal max-w-2xl mx-auto leading-relaxed opacity-0 animate-fade-in-up stagger-1"
       >
         {description}
       </p>
 
       <div
-        class="flex flex-col sm:flex-row items-center justify-center gap-8 pt-8 opacity-0 animate-fade-in-up stagger-2"
+        class="flex flex-col sm:flex-row items-center justify-center gap-6 pt-6 opacity-0 animate-fade-in-up stagger-2"
       >
         <a
           href="/events"
-          class="group relative min-w-[220px] inline-flex items-center justify-center px-10 py-5 bg-wealden-green text-white font-sans font-semibold text-xl transition-all duration-500 rounded-full hover:bg-wealden-green-dark hover:scale-105 active:scale-95 shadow-xl shadow-wealden-green/20"
+          class="group relative min-w-[200px] inline-flex items-center justify-center px-8 py-4 bg-wealden-green text-white font-sans font-semibold text-lg transition-all duration-500 rounded-full hover:bg-wealden-green-dark hover:scale-105 active:scale-95 shadow-xl shadow-wealden-green/20"
         >
           {primaryCTA}
         </a>
         <a
           href="/about"
-          class="group relative min-w-[220px] inline-flex items-center justify-center px-10 py-5 bg-knole-ink text-white font-sans font-semibold text-xl transition-all duration-500 rounded-full hover:bg-knole-ink-dark hover:scale-105 active:scale-95 shadow-xl shadow-knole-ink/20"
+          class="group relative min-w-[200px] inline-flex items-center justify-center px-8 py-4 bg-knole-ink text-white font-sans font-semibold text-lg transition-all duration-500 rounded-full hover:bg-knole-ink-dark hover:scale-105 active:scale-95 shadow-xl shadow-knole-ink/20"
         >
           {secondaryCTA}
         </a>
@@ -77,49 +70,3 @@ const { title, description, primaryCTA, secondaryCTA } = Astro.props;
     </div>
   </div>
 </section>
-
-<style>
-  @keyframes mesh-float-1 {
-    0%,
-    100% {
-      transform: translate(0, 0) scale(1);
-    }
-    33% {
-      transform: translate(10%, 10%) scale(1.1);
-    }
-    66% {
-      transform: translate(-5%, 15%) scale(0.9);
-    }
-  }
-  @keyframes mesh-float-2 {
-    0%,
-    100% {
-      transform: translate(0, 0) scale(1);
-    }
-    33% {
-      transform: translate(-15%, -5%) scale(0.9);
-    }
-    66% {
-      transform: translate(10%, -10%) scale(1.1);
-    }
-  }
-  @keyframes mesh-float-3 {
-    0%,
-    100% {
-      transform: translate(0, 0) scale(1);
-    }
-    50% {
-      transform: translate(-10%, 10%) scale(1.2);
-    }
-  }
-
-  .animate-mesh-float-1 {
-    animation: mesh-float-1 20s ease-in-out infinite;
-  }
-  .animate-mesh-float-2 {
-    animation: mesh-float-2 25s ease-in-out infinite;
-  }
-  .animate-mesh-float-3 {
-    animation: mesh-float-3 18s ease-in-out infinite;
-  }
-</style>
