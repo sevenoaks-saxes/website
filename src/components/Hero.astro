@@ -1,4 +1,6 @@
 ---
+import HeroMesh from './HeroMesh.astro';
+
 interface Props {
   title: string;
   description: string;
@@ -12,27 +14,7 @@ const { title, description, primaryCTA, secondaryCTA } = Astro.props;
 <section
   class="relative w-full min-h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden bg-white py-24"
 >
-  <!-- Animated Mesh Background -->
-  <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-    <div
-      class="absolute top-[-20%] left-[-10%] w-[80%] h-[80%] rounded-full bg-wealden-green/40 blur-[140px] animate-mesh-float-1"
-    >
-    </div>
-    <div
-      class="absolute bottom-[-15%] right-[-10%] w-[70%] h-[70%] rounded-full bg-bluebell-haze/45 blur-[140px] animate-mesh-float-2"
-    >
-    </div>
-    <div
-      class="absolute top-[10%] right-[-5%] w-[50%] h-[50%] rounded-full bg-orchard-terracotta/35 blur-[120px] animate-mesh-float-3"
-    >
-    </div>
-    <!-- Grain Overlay -->
-    <div
-      class="absolute inset-0 opacity-[0.03] mix-blend-multiply pointer-events-none"
-      style="background-image: url('data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E');"
-    >
-    </div>
-  </div>
+  <HeroMesh complexity={8} speed={0.4} opacity={0.35} grain={true} />
 
   <!-- Content -->
   <div class="relative z-10 container mx-auto px-6 text-center">

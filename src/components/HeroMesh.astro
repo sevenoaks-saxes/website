@@ -1,0 +1,110 @@
+---
+interface Props {
+  complexity?: number;
+  speed?: number;
+  opacity?: number;
+  grain?: boolean;
+}
+
+const {
+  complexity = 6,
+  speed = 0.5,
+  opacity = 0.3,
+  grain = true,
+} = Astro.props;
+---
+
+<div
+  class="hero-mesh-container absolute inset-0 overflow-hidden pointer-events-none"
+  data-complexity={complexity}
+  data-speed={speed}
+  data-opacity={opacity}
+>
+  <canvas class="hero-mesh-canvas w-full h-full"></canvas>
+  {
+    grain && (
+      <div
+        class="absolute inset-0 opacity-[0.03] mix-blend-multiply pointer-events-none"
+        style="background-image: url('data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E');"
+      ></div>
+    )
+  }
+</div>
+
+<script>
+  class HeroMesh {
+    canvas: HTMLCanvasElement;
+    ctx: CanvasRenderingContext2D;
+    complexity: number;
+    speed: number;
+    opacity: number;
+    blobs: any[];
+    width: number = 0;
+    height: number = 0;
+    animationFrame: number = 0;
+
+    colors = [
+      '#34A19C', // wealden-green
+      '#E27C6A', // orchard-terracotta
+      '#8480B6', // bluebell-haze
+      '#2D2D41', // knole-ink
+    ];
+
+    constructor(container: HTMLElement) {
+      this.canvas = container.querySelector('.hero-mesh-canvas') as HTMLCanvasElement;
+      this.ctx = this.canvas.getContext('2d')!;
+      this.complexity = parseFloat(container.dataset.complexity || '6');
+      this.speed = parseFloat(container.dataset.speed || '0.5');
+      this.opacity = parseFloat(container.dataset.opacity || '0.3');
+      this.blobs = [];
+
+      this.init();
+      this.animate();
+      window.addEventListener('resize', () => this.init());
+    }
+
+    init() {
+      this.width = this.canvas.width = window.innerWidth;
+      this.height = this.canvas.height = window.innerHeight;
+      this.blobs = [];
+
+      for (let i = 0; i < this.complexity; i++) {
+        this.blobs.push({
+          x: Math.random() * this.width,
+          y: Math.random() * this.height,
+          r: Math.random() * 400 + 200,
+          color: this.colors[Math.floor(Math.random() * this.colors.length)],
+          vx: (Math.random() - 0.5) * this.speed * 2,
+          vy: (Math.random() - 0.5) * this.speed * 2,
+        });
+      }
+    }
+
+    animate() {
+      this.ctx.clearRect(0, 0, this.width, this.height);
+      this.ctx.globalAlpha = this.opacity;
+      this.ctx.filter = 'blur(100px)';
+
+      this.blobs.forEach((blob) => {
+        blob.x += blob.vx;
+        blob.y += blob.vy;
+
+        if (blob.x < -blob.r) blob.x = this.width + blob.r;
+        if (blob.x > this.width + blob.r) blob.x = -blob.r;
+        if (blob.y < -blob.r) blob.y = this.height + blob.r;
+        if (blob.y > this.height + blob.r) blob.y = -blob.r;
+
+        this.ctx.beginPath();
+        this.ctx.arc(blob.x, blob.y, blob.r, 0, Math.PI * 2);
+        this.ctx.fillStyle = blob.color;
+        this.ctx.fill();
+      });
+
+      this.animationFrame = requestAnimationFrame(() => this.animate());
+    }
+  }
+
+  document.querySelectorAll('.hero-mesh-container').forEach((container) => {
+    new HeroMesh(container as HTMLElement);
+  });
+</script>

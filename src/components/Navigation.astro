@@ -67,11 +67,11 @@ import Logo from './Logo.astro';
                 {/* Dropdown Menu */}
                 <div class="absolute left-1/2 -translate-x-1/2 top-full w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-out scale-95 group-hover:scale-100 origin-top z-50">
                   <div class="pt-4">
-                    <div class="glass border-knole-ink/5 p-3 rounded-2xl shadow-2xl space-y-1">
+                    <div class="bg-knole-ink p-3 rounded-2xl shadow-2xl space-y-1">
                       {link.dropdown.map((sublink) => (
                         <a
                           href={sublink.href}
-                          class="block px-4 py-3 text-[15px] font-medium text-knole-ink hover:bg-wealden-green/5 hover:text-wealden-green rounded-xl transition-all duration-200"
+                          class="block px-4 py-3 text-[15px] font-medium text-downs-chalk/80 hover:text-white hover:bg-white/10 rounded-xl transition-all duration-200"
                         >
                           {sublink.name}
                         </a>
@@ -139,24 +139,22 @@ import Logo from './Logo.astro';
 
   <!-- Mobile Menu -->
   <div class="hidden md:hidden overflow-hidden" id="mobile-menu">
-    <div
-      class="px-6 pb-12 pt-4 glass border-t border-knole-ink/5 shadow-2xl space-y-6"
-    >
+    <div class="px-6 pb-12 pt-8 bg-knole-ink shadow-2xl space-y-8">
       {
         navLinks.map((link) => (
           <div class="space-y-4">
             <a
               href={link.href}
-              class="block text-2xl font-serif text-knole-ink hover:text-wealden-green transition-colors"
+              class="block text-2xl font-serif text-white hover:text-wealden-green transition-colors"
             >
               {link.name}
             </a>
             {link.dropdown && (
-              <div class="grid grid-cols-1 gap-4 pl-4 border-l-2 border-wealden-green/20">
+              <div class="grid grid-cols-1 gap-4 pl-4 border-l-2 border-white/10">
                 {link.dropdown.map((sublink) => (
                   <a
                     href={sublink.href}
-                    class="block text-lg font-medium text-knole-ink/70 hover:text-wealden-green transition-colors"
+                    class="block text-lg font-medium text-downs-chalk/70 hover:text-white transition-colors"
                   >
                     {sublink.name}
                   </a>
