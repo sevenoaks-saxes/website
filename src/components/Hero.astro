@@ -1,4 +1,6 @@
 ---
+import HeroMesh from './HeroMesh.astro';
+
 interface Props {
   title: string;
   description: string;
@@ -10,35 +12,39 @@ const { title, description, primaryCTA, secondaryCTA } = Astro.props;
 ---
 
 <section
-  class="relative w-full min-h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden bg-white"
+  class="relative w-full min-h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden bg-white py-24"
 >
+  <HeroMesh complexity={8} speed={0.4} opacity={0.35} grain={true} />
+
   <!-- Content -->
-  <div class="relative z-10 container mx-auto px-4 text-center">
-    <div class="max-w-4xl mx-auto space-y-8">
-      <h1
-        class="text-orchard-terracotta text-5xl md:text-7xl font-serif font-normal leading-[1.1] tracking-tight"
-      >
-        {title}
-      </h1>
+  <div class="relative z-10 container mx-auto px-6 text-center">
+    <div class="max-w-4xl mx-auto space-y-10">
+      <div class="overflow-hidden">
+        <h1
+          class="text-knole-ink text-5xl md:text-6xl lg:text-7xl font-serif font-normal leading-[1.1] tracking-tight animate-fade-in-up"
+        >
+          {title}
+        </h1>
+      </div>
 
       <p
-        class="text-knole-ink text-xl md:text-2xl font-sans font-medium max-w-2xl mx-auto leading-relaxed"
+        class="text-knole-ink text-lg md:text-xl font-sans font-normal max-w-2xl mx-auto leading-relaxed opacity-0 animate-fade-in-up stagger-1"
       >
         {description}
       </p>
 
       <div
-        class="flex flex-col sm:flex-row items-center justify-center gap-6 pt-6"
+        class="flex flex-col sm:flex-row items-center justify-center gap-6 pt-6 opacity-0 animate-fade-in-up stagger-2"
       >
         <a
           href="/events"
-          class="min-w-[200px] inline-flex items-center justify-center px-8 py-4 bg-wealden-green hover:bg-wealden-green-dark text-white font-sans font-semibold text-lg transition-all duration-300 rounded-md"
+          class="group relative min-w-[200px] inline-flex items-center justify-center px-8 py-4 bg-wealden-green text-white font-sans font-semibold text-lg transition-all duration-500 rounded-full hover:bg-wealden-green-dark hover:scale-105 active:scale-95 shadow-xl shadow-wealden-green/20"
         >
           {primaryCTA}
         </a>
         <a
           href="/about"
-          class="min-w-[200px] inline-flex items-center justify-center px-8 py-4 bg-knole-ink hover:bg-knole-ink-dark text-white font-sans font-semibold text-lg transition-all duration-300 rounded-md"
+          class="group relative min-w-[200px] inline-flex items-center justify-center px-8 py-4 bg-knole-ink text-white font-sans font-semibold text-lg transition-all duration-500 rounded-full hover:bg-knole-ink-dark hover:scale-105 active:scale-95 shadow-xl shadow-knole-ink/20"
         >
           {secondaryCTA}
         </a>

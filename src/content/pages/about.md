@@ -3,14 +3,14 @@ title: About Us
 description: Learn more about Sevenoaks Saxes.
 ---
 
-Sevenoaks Saxes was founded with the goal of bringing together saxophone enthusiasts in the Sevenoaks area. We perform a wide variety of music, from jazz and classical to pop and film scores.
+Sevenoaks Saxes is a premier community saxophone organisation based in Kent. Comprising both a Saxophone Ensemble and a Saxophone Orchestra, we provide a platform for players of all levels to perform diverse and challenging repertoire in a professional, supportive environment.
 
-## Professional Direction
+## Artistic Leadership
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+Led by our conductor Caroline Fernandes and supported by our patron, world-renowned saxophonist Andy Scott, Sevenoaks Saxes is dedicated to achieving the highest standards of musicianship. We believe that community music-making should be both intensive and rewarding, pushing our members to reach their full artistic potential.
 
-Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum.
+Our rehearsals, held monthly at The Drive Methodist Church in Sevenoaks, are a masterclass in ensemble playing. We tackle everything from classical transcriptions to contemporary commissions, ensuring a broad and engaging musical experience for our members and audiences alike.
 
-## Our Vision
+## Our Community
 
-Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. Etiam ultrices.
+At the core of Sevenoaks Saxes is a vibrant community of passionate musicians. We are more than just a group of players; we are a collaborative space where friendships are formed and the joy of the saxophone is celebrated. From our regular rehearsals to our public concerts and immersive Play Days, we strive to be an integral part of the local arts scene and a home for saxophonists across the region.

@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import PageHeader from '../../components/PageHeader.astro';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -18,12 +19,15 @@ const { Content } = await render(page);
 ---
 
 <Layout title={page.data.title} description={page.data.description}>
-  <div class="prose-container py-12 md:py-20">
-    <div
-      class="prose max-w-none prose-p:leading-relaxed prose-headings:font-serif prose-headings:font-normal prose-headings:text-orchard-terracotta"
-    >
-      <h1>{page.data.title}</h1>
-      <Content />
+  <PageHeader title={page.data.title} description={page.data.description} />
+
+  <section class="bg-white py-24 md:py-32">
+    <div class="prose-container">
+      <div
+        class="prose max-w-none prose-p:leading-relaxed prose-headings:font-serif prose-headings:font-normal prose-headings:text-knole-ink prose-img:rounded-3xl prose-img:shadow-2xl"
+      >
+        <Content />
+      </div>
     </div>
-  </div>
+  </section>
 </Layout>

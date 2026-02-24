@@ -12,52 +12,80 @@ const formattedDate = new Date(date).toLocaleDateString('en-GB', {
 const typeColors = {
   concert:
     'text-orchard-terracotta border-orchard-terracotta/20 bg-orchard-terracotta-light/10',
-  rehearsal: 'text-wealden-green border-wealden-green/20 bg-wealden-green-light/10',
-  'play day': 'text-bluebell-haze border-bluebell-haze/20 bg-bluebell-haze-light/10',
+  rehearsal:
+    'text-wealden-green border-wealden-green/20 bg-wealden-green-light/10',
+  'play day':
+    'text-bluebell-haze border-bluebell-haze/20 bg-bluebell-haze-light/10',
   other: 'text-knole-ink border-knole-ink/20 bg-downs-chalk',
 };
 ---
 
 <div
-  class="flex flex-col overflow-hidden bg-white border border-knole-ink/5 transition-all hover:border-knole-ink/20 group"
+  class="flex flex-col overflow-hidden bg-white border border-knole-ink/5 transition-all duration-500 hover:shadow-2xl hover:shadow-knole-ink/5 hover:-translate-y-2 group rounded-3xl"
 >
-  <div class="p-8">
-    <div class="flex items-center justify-between mb-8">
+  <div class="p-10">
+    <div class="flex items-center justify-between mb-10">
       <span
-        class={`inline-flex items-center px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] border ${typeColors[type] || typeColors.other}`}
+        class={`inline-flex items-center px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.25em] rounded-full border ${typeColors[type] || typeColors.other}`}
       >
         {type}
       </span>
       <span
-        class="text-xs font-semibold text-knole-ink/70 uppercase tracking-widest"
+        class="text-xs font-bold text-knole-ink/70 uppercase tracking-[0.2em]"
         >{time}</span
       >
     </div>
-    <h3
-      class="text-2xl font-serif font-normal mb-4 text-orchard-terracotta group-hover:text-orchard-terracotta-dark transition-colors leading-tight"
-    >
-      <a href={`/events/${event.id}`}>
-        {name}
-      </a>
-    </h3>
-    <p class="text-xs font-bold text-wealden-green uppercase tracking-widest mb-6">
-      {formattedDate}
-    </p>
-    <p
-      class="text-base text-knole-ink/80 font-medium mb-8 leading-relaxed line-clamp-2 italic"
-    >
-      {location}
-    </p>
-    <p class="text-knole-ink/90 line-clamp-3 leading-relaxed text-base">
-      {description}
-    </p>
+
+    <div class="space-y-6">
+      <p
+        class="text-xs font-bold text-wealden-green uppercase tracking-[0.25em]"
+      >
+        {formattedDate}
+      </p>
+
+      <h3
+        class="text-3xl md:text-4xl font-serif font-normal text-knole-ink group-hover:text-orchard-terracotta transition-colors duration-500 leading-[1.2]"
+      >
+        <a href={`/events/${event.id}`} class="block">
+          {name}
+        </a>
+      </h3>
+
+      <p
+        class="text-base text-knole-ink/70 font-medium leading-relaxed italic border-l-2 border-downs-chalk pl-4"
+      >
+        {location}
+      </p>
+
+      <p class="text-knole-ink/80 line-clamp-3 leading-relaxed text-lg">
+        {description}
+      </p>
+    </div>
   </div>
-  <div class="px-8 pb-8 mt-auto">
+
+  <div class="px-10 pb-10 mt-auto">
     <a
       href={`/events/${event.id}`}
-      class="text-[11px] font-bold text-orchard-terracotta uppercase tracking-[0.2em] hover:text-orchard-terracotta-dark transition-colors inline-flex items-center border-b border-orchard-terracotta/20 pb-1"
+      class="group/btn inline-flex items-center gap-3 text-[11px] font-bold text-knole-ink uppercase tracking-[0.25em] transition-all"
     >
-      Explore Event
+      <span
+        class="relative pb-1 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-orchard-terracotta after:origin-right after:scale-x-0 group-hover/btn:after:scale-x-100 group-hover/btn:after:origin-left after:transition-transform after:duration-500"
+      >
+        Explore Event
+      </span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-4 w-4 text-orchard-terracotta transition-transform duration-500 group-hover/btn:translate-x-2"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2.5"
+          d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+      </svg>
     </a>
   </div>
 </div>

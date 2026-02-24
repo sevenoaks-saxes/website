@@ -3,13 +3,24 @@ title: Contact Us
 description: Get in touch with Sevenoaks Saxes.
 ---
 
-We'd love to hear from you! Whether you're interested in joining, booking us for an event, or just want to say hello.
+Whether you're looking to join the ensemble, interested in attending a Play Day, or wish to book us for a performance, we'd love to hear from you. Our community is built on collaboration and a shared passion for the saxophone, and we welcome all inquiries.
 
-Email: info@sevenoakssaxes.com
-Follow us on social media for the latest updates.
+## How to Reach Us
 
-## Inquiries
+The best way to get in touch is via email. We aim to respond to all messages within 48 hours.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eu libero ac nisl pretium pretium. Nullam sodales, arcu ut varius vulputate, velit velit placerat lorem, in congue diam velit in diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+**Email:** [info@sevenoakssaxes.com](mailto:info@sevenoakssaxes.com)
 
-Curabitur placerat vehicula massa. In sodales neque eget dui. Quisque congue, lorem sed convallis facilisis, quam libero scelerisque diam, at hendrerit elit odio at risus.
+## Visit a Rehearsal
+
+We rehearse once a month on Saturdays at **The Drive Methodist Church** in Sevenoaks. If you're interested in joining, please contact us first so we can ensure there's a chair and music ready for you.
+
+**Address:**
+The Drive Methodist Church
+The Drive
+Sevenoaks
+TN13 3AB
+
+## Stay Connected
+
+Follow us on our journey and stay up to date with our latest performances, workshops, and news by following us on social media. We regularly share clips from our rehearsals and highlights from our concerts.

@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import PageHeader from '../../components/PageHeader.astro';
 import { getCollection, getEntry } from 'astro:content';
 import EventCard from '../../components/EventCard.astro';
 
@@ -15,28 +16,31 @@ const sortedEvents = events.sort(
   title={entry?.data.title || 'Events'}
   description={entry?.data.description}
 >
-  <div class="container mx-auto px-4 py-12 md:py-20 sm:px-6 lg:px-8">
-    <div class="prose-container !mx-0 !px-0 mb-16">
-      <h1 class="text-4xl font-serif font-normal text-orchard-terracotta mb-8">
-        {entry?.data.title}
-      </h1>
-      <p class="text-xl text-knole-ink/60 leading-relaxed italic">
-        {entry?.data.description}
-      </p>
-    </div>
+  <PageHeader
+    title={entry?.data.title || 'Events'}
+    description={entry?.data.description}
+  />
 
-    <div class="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
-      {sortedEvents.map((event) => <EventCard event={event} />)}
+  <section class="bg-white section-padding">
+    <div class="container mx-auto px-6 sm:px-8 lg:px-12">
+      {
+        sortedEvents.length > 0 ? (
+          <div class="grid gap-x-10 gap-y-16 md:grid-cols-2 lg:grid-cols-3">
+            {sortedEvents.map((event) => (
+              <EventCard event={event} />
+            ))}
+          </div>
+        ) : (
+          <div class="text-center py-32 bg-downs-chalk/30 rounded-3xl border-2 border-dashed border-knole-ink/5">
+            <p class="text-knole-ink/40 uppercase tracking-[0.3em] font-bold text-sm">
+              No upcoming events scheduled at this time.
+            </p>
+            <p class="mt-4 text-knole-ink/60 font-medium">
+              Please check back soon or follow us for updates.
+            </p>
+          </div>
+        )
+      }
     </div>
-
-    {
-      events.length === 0 && (
-        <div class="text-center py-24">
-          <p class="text-knole-ink/40 uppercase tracking-[0.2em] font-bold text-xs">
-            No upcoming events at the moment.
-          </p>
-        </div>
-      )
-    }
-  </div>
+  </section>
 </Layout>

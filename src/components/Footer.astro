@@ -2,35 +2,33 @@
 const today = new Date();
 ---
 
-<footer class="bg-downs-chalk border-t border-knole-ink/5 text-knole-ink">
-  <div class="container mx-auto px-4 py-16 sm:px-6 lg:px-8">
-    <div class="flex flex-col items-center justify-between gap-8 sm:flex-row">
-      <div class="text-center sm:text-left">
-        <a
-          href="/"
-          class="text-lg font-serif font-normal text-orchard-terracotta mb-2 block tracking-tight"
-        >
-          Sevenoaks Saxes
-        </a>
-        <p class="text-base font-medium text-knole-ink/70">
-          &copy; {today.getFullYear()} Sevenoaks Saxes. All rights reserved.
-        </p>
-      </div>
+<footer class="bg-knole-ink text-white py-12 md:py-16">
+  <div class="container mx-auto px-6 lg:px-12">
+    <div
+      class="flex flex-col md:flex-row items-center justify-between gap-8 border-b border-white/10 pb-12 mb-12"
+    >
+      <a
+        href="/"
+        class="group flex items-center gap-3 text-2xl font-serif font-normal tracking-tight text-white transition-colors hover:text-wealden-green"
+      >
+        <span class="font-serif">Sevenoaks Saxes</span>
+      </a>
 
-      <div class="flex items-center space-x-10">
+      <div class="flex items-center gap-8">
         <a
           href="/privacy"
-          class="text-base font-semibold text-orchard-terracotta hover:text-orchard-terracotta-dark transition-colors tracking-wide"
+          class="text-sm font-semibold text-white hover:text-wealden-green transition-colors"
+          >Privacy Policy</a
         >
-          Privacy Notice
-        </a>
-        <a
-          href="/contact"
-          class="text-base font-semibold text-orchard-terracotta hover:text-orchard-terracotta-dark transition-colors tracking-wide"
-        >
-          Contact
-        </a>
       </div>
+    </div>
+
+    <div
+      class="flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left"
+    >
+      <p class="text-xs font-medium text-white/50 tracking-wider">
+        &copy; {today.getFullYear()} Sevenoaks Saxes. All rights reserved.
+      </p>
     </div>
   </div>
 </footer>
