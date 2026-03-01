@@ -4,13 +4,15 @@ interface Props {
   speed?: number;
   opacity?: number;
   grain?: boolean;
+  seed?: number;
 }
 
 const {
   complexity = 6,
   speed = 0.5,
-  opacity = 0.3,
+  opacity = 0.2,
   grain = true,
+  seed = 123,
 } = Astro.props;
 ---
 
@@ -19,6 +21,7 @@ const {
   data-complexity={complexity}
   data-speed={speed}
   data-opacity={opacity}
+  data-seed={seed}
 >
   <canvas class="hero-mesh-canvas w-full h-full"></canvas>
   {
@@ -47,37 +50,64 @@ const {
       '#34A19C', // wealden-green
       '#E27C6A', // orchard-terracotta
       '#8480B6', // bluebell-haze
-      '#2D2D41', // knole-ink
+      '#B0D6D4', // lighter wealden
+      '#F4BFB4', // lighter terracotta
     ];
+
+    seed: number;
 
     constructor(container: HTMLElement) {
       this.canvas = container.querySelector('.hero-mesh-canvas') as HTMLCanvasElement;
       this.ctx = this.canvas.getContext('2d')!;
-      this.complexity = parseFloat(container.dataset.complexity || '6');
+      this.complexity = parseInt(container.dataset.complexity || '6');
       this.speed = parseFloat(container.dataset.speed || '0.5');
-      this.opacity = parseFloat(container.dataset.opacity || '0.3');
+      this.opacity = parseFloat(container.dataset.opacity || '0.2');
+      this.seed = parseInt(container.dataset.seed || '123');
       this.blobs = [];
 
       this.init();
       this.animate();
-      window.addEventListener('resize', () => this.init());
+      window.addEventListener('resize', () => this.handleResize());
+    }
+
+    // Simple seeded random for consistent pattern on refresh
+    seededRandom(s: number) {
+      const x = Math.sin(s) * 10000;
+      return x - Math.floor(x);
     }
 
     init() {
-      this.width = this.canvas.width = window.innerWidth;
-      this.height = this.canvas.height = window.innerHeight;
-      this.blobs = [];
+      const parent = this.canvas.parentElement;
+      this.width = this.canvas.width = parent?.clientWidth || window.innerWidth;
+      this.height = this.canvas.height = parent?.clientHeight || window.innerHeight;
 
-      for (let i = 0; i < this.complexity; i++) {
-        this.blobs.push({
-          x: Math.random() * this.width,
-          y: Math.random() * this.height,
-          r: Math.random() * 400 + 200,
-          color: this.colors[Math.floor(Math.random() * this.colors.length)],
-          vx: (Math.random() - 0.5) * this.speed * 2,
-          vy: (Math.random() - 0.5) * this.speed * 2,
-        });
+      if (this.blobs.length === 0) {
+        let currentSeed = this.seed;
+        for (let i = 0; i < this.complexity; i++) {
+          this.blobs.push({
+            x: this.seededRandom(currentSeed++) * this.width,
+            y: this.seededRandom(currentSeed++) * this.height,
+            r: this.seededRandom(currentSeed++) * 300 + 300,
+            color: this.colors[Math.floor(this.seededRandom(currentSeed++) * this.colors.length)],
+            vx: (this.seededRandom(currentSeed++) - 0.5) * this.speed * 1.5,
+            vy: (this.seededRandom(currentSeed++) - 0.5) * this.speed * 1.5,
+          });
+        }
       }
+    }
+
+    handleResize() {
+      const oldWidth = this.width;
+      const oldHeight = this.height;
+      const parent = this.canvas.parentElement;
+      this.width = this.canvas.width = parent?.clientWidth || window.innerWidth;
+      this.height = this.canvas.height = parent?.clientHeight || window.innerHeight;
+
+      // Scale blob positions to new dimensions to avoid shuffling
+      this.blobs.forEach(blob => {
+        blob.x = (blob.x / oldWidth) * this.width;
+        blob.y = (blob.y / oldHeight) * this.height;
+      });
     }
 
     animate() {

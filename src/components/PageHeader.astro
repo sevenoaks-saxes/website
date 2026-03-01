@@ -9,8 +9,8 @@ interface Props {
 const { title, description } = Astro.props;
 ---
 
-<section class="relative w-full overflow-hidden bg-white pt-32 pb-20 border-b border-knole-ink/5">
-  <HeroMesh complexity={5} speed={0.3} opacity={0.2} grain={true} />
+<section class="relative w-full overflow-hidden bg-downs-chalk/20 pt-32 pb-20 border-b border-knole-ink/5">
+  <HeroMesh complexity={4} speed={0.25} opacity={0.15} grain={true} seed={456} />
 
   <div class="relative z-10 prose-container">
     <slot name="before" />
