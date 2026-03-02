@@ -7,25 +7,25 @@
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   --font-serif: 'Young Serif', serif;
 
-  --color-wealden-green: #4a5d4e;
-  --color-wealden-green-light: #738a78;
-  --color-wealden-green-dark: #354439;
+  --color-wealden-green: #34a19c;
+  --color-wealden-green-light: #86c7c4;
+  --color-wealden-green-dark: #2b817d;
 
-  --color-orchard-terracotta: #c1664c;
-  --color-orchard-terracotta-light: #d68b75;
-  --color-orchard-terracotta-dark: #9a503b;
+  --color-orchard-terracotta: #e27c6a;
+  --color-orchard-terracotta-light: #e89688;
+  --color-orchard-terracotta-dark: #b66354;
 
   --color-knole-ink: #2d2d41;
-  --color-knole-ink-light: #4b4b61;
-  --color-knole-ink-dark: #1e1e2b;
+  --color-knole-ink-light: #575767;
+  --color-knole-ink-dark: #252433;
 
   --color-bluebell-haze: #8480b6;
-  --color-bluebell-haze-light: #aba8cd;
-  --color-bluebell-haze-dark: #5f5a91;
+  --color-bluebell-haze-light: #9d99c5;
+  --color-bluebell-haze-dark: #6a6692;
 
-  --color-downs-chalk: #fdfcf0;
-  --color-downs-chalk-light: #fefef7;
-  --color-downs-chalk-dark: #e8e6d1;
+  --color-downs-chalk: #f0f1f2;
+  --color-downs-chalk-light: #f3f4f5;
+  --color-downs-chalk-dark: #c0c1c2;
 
 }
 
@@ -41,6 +41,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -51,6 +52,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -121,9 +123,11 @@ html {
 @utility stagger-1 {
   animation-delay: 0.1s;
 }
+
 @utility stagger-2 {
   animation-delay: 0.2s;
 }
+
 @utility stagger-3 {
   animation-delay: 0.3s;
 }
