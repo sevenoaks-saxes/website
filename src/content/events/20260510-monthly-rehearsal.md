@@ -1,7 +1,7 @@
 ---
 name: Monthly Rehearsal
 description: Our intensive Saturday rehearsal for the Ensemble and Orchestra.
-date: 2025-05-10
+date: 2026-05-10
 time: '10:00 - 13:00'
 location: The Drive Methodist Church, Sevenoaks
 type: rehearsal

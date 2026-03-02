@@ -1,7 +1,7 @@
 ---
 name: A Celebration of the Saxophone
 description: An evening of diverse repertoire featuring the Sevenoaks Saxes Ensemble and Orchestra.
-date: 2025-04-12
+date: 2026-04-12
 time: '19:30'
 location: Stag Theatre, Sevenoaks
 type: concert
