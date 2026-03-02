@@ -7,33 +7,33 @@
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   --font-serif: 'Young Serif', serif;
 
-  --color-wealden-green: #34a19c;
-  --color-wealden-green-light: #86c7c4;
-  --color-wealden-green-dark: #2b817d;
+  --color-wealden-green: #4a5d4e;
+  --color-wealden-green-light: #738a78;
+  --color-wealden-green-dark: #354439;
 
-  --color-orchard-terracotta: #e27c6a;
-  --color-orchard-terracotta-light: #e89688;
-  --color-orchard-terracotta-dark: #b66354;
+  --color-orchard-terracotta: #c1664c;
+  --color-orchard-terracotta-light: #d68b75;
+  --color-orchard-terracotta-dark: #9a503b;
 
   --color-knole-ink: #2d2d41;
-  --color-knole-ink-light: #575767;
-  --color-knole-ink-dark: #252433;
+  --color-knole-ink-light: #4b4b61;
+  --color-knole-ink-dark: #1e1e2b;
 
   --color-bluebell-haze: #8480b6;
-  --color-bluebell-haze-light: #9d99c5;
-  --color-bluebell-haze-dark: #6a6692;
+  --color-bluebell-haze-light: #aba8cd;
+  --color-bluebell-haze-dark: #5f5a91;
 
-  --color-downs-chalk: #f0f1f2;
-  --color-downs-chalk-light: #f3f4f5;
-  --color-downs-chalk-dark: #c0c1c2;
+  --color-downs-chalk: #fdfcf0;
+  --color-downs-chalk-light: #fefef7;
+  --color-downs-chalk-dark: #e8e6d1;
 
 }
 
-.animate-fade-in {
+@utility animate-fade-in {
   animation: fade-in 0.8s ease-out forwards;
 }
 
-.animate-fade-in-up {
+@utility animate-fade-in-up {
   animation: fade-in-up 0.8s ease-out forwards;
 }
 
@@ -100,31 +100,31 @@ html {
   scroll-behavior: smooth;
 }
 
-.prose-container {
+@utility prose-container {
   @apply max-w-4xl mx-auto px-6 md:px-8;
 }
 
-.section-padding {
+@utility section-padding {
   @apply py-24 md:py-32;
 }
 
-.glass {
+@utility glass {
   @apply bg-white/70 border border-white/20;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
 
-.text-gradient {
+@utility text-gradient {
   @apply bg-clip-text text-transparent bg-gradient-to-r from-knole-ink via-bluebell-haze to-wealden-green;
 }
 
-.stagger-1 {
+@utility stagger-1 {
   animation-delay: 0.1s;
 }
-.stagger-2 {
+@utility stagger-2 {
   animation-delay: 0.2s;
 }
-.stagger-3 {
+@utility stagger-3 {
   animation-delay: 0.3s;
 }
 

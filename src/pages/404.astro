@@ -1,0 +1,34 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
+---
+
+<Layout title="404 - Page Not Found" description="The page you are looking for does not exist.">
+  <PageHeader
+    title="Page Not Found"
+    description="We couldn't find the page you were looking for. It might have been moved, deleted, or never existed."
+  />
+
+  <section class="bg-white py-24 md:py-32">
+    <div class="prose-container text-center">
+      <div class="mb-12">
+        <p class="text-6xl md:text-8xl font-serif text-downs-chalk-dark">404</p>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+        <a
+          href="/"
+          class="group relative min-w-[200px] inline-flex items-center justify-center px-8 py-4 bg-wealden-green text-white font-sans font-semibold text-lg transition-all duration-500 rounded-full hover:bg-wealden-green-dark hover:scale-105 focus:scale-105 focus:outline-none focus:ring-4 focus:ring-wealden-green/30 active:scale-95 shadow-xl shadow-wealden-green/20"
+        >
+          Return Home
+        </a>
+        <a
+          href="/events"
+          class="group relative min-w-[200px] inline-flex items-center justify-center px-8 py-4 bg-knole-ink text-white font-sans font-semibold text-lg transition-all duration-500 rounded-full hover:bg-knole-ink-dark hover:scale-105 focus:scale-105 focus:outline-none focus:ring-4 focus:ring-knole-ink/30 active:scale-95 shadow-xl shadow-knole-ink/20"
+        >
+          View Events
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

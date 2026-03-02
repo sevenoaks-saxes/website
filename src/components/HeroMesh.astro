@@ -22,8 +22,10 @@ const {
   data-speed={speed}
   data-opacity={opacity}
   data-seed={seed}
+  aria-hidden="true"
 >
   <canvas class="hero-mesh-canvas w-full h-full"></canvas>
+  <div class="hero-mesh-fallback absolute inset-0 bg-gradient-to-br from-wealden-green/5 via-bluebell-haze/5 to-orchard-terracotta/5 hidden"></div>
   {
     grain && (
       <div
@@ -65,9 +67,17 @@ const {
       this.seed = parseInt(container.dataset.seed || '123');
       this.blobs = [];
 
-      this.init();
-      this.animate();
-      window.addEventListener('resize', () => this.handleResize());
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const fallback = container.querySelector('.hero-mesh-fallback');
+
+      if (prefersReducedMotion) {
+        this.canvas.classList.add('hidden');
+        fallback?.classList.remove('hidden');
+      } else {
+        this.init();
+        this.animate();
+        window.addEventListener('resize', () => this.handleResize());
+      }
     }
 
     // Simple seeded random for consistent pattern on refresh

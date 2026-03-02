@@ -13,11 +13,11 @@ const formattedDate = new Date(date).toLocaleDateString('en-GB', {
 
 const typeColors = {
   concert:
-    'text-orchard-terracotta border-orchard-terracotta/20 bg-orchard-terracotta-light/10',
+    'text-orchard-terracotta-dark border-orchard-terracotta/20 bg-orchard-terracotta-light/10',
   rehearsal:
-    'text-wealden-green border-wealden-green/20 bg-wealden-green-light/10',
+    'text-wealden-green-dark border-wealden-green/20 bg-wealden-green-light/10',
   'play day':
-    'text-bluebell-haze border-bluebell-haze/20 bg-bluebell-haze-light/10',
+    'text-bluebell-haze-dark border-bluebell-haze/20 bg-bluebell-haze-light/10',
   other: 'text-knole-ink border-knole-ink/20 bg-downs-chalk',
 };
 ---
@@ -60,7 +60,7 @@ const typeColors = {
           isSlim ? 'text-2xl md:text-3xl' : 'text-3xl md:text-4xl',
         ]}
       >
-        <a href={`/events/${event.id}`} class="block">
+        <a href={`/events/${event.id}`} class="block focus:outline-none focus:underline decoration-orchard-terracotta decoration-2 underline-offset-8">
           {name}
         </a>
       </h3>
@@ -83,9 +83,10 @@ const typeColors = {
     <div class="px-10 pb-10 mt-auto">
       <a
         href={`/events/${event.id}`}
-        class="group/btn inline-flex items-center gap-3 text-[11px] font-bold text-knole-ink uppercase tracking-[0.25em] transition-all"
+        class="group/btn inline-flex items-center gap-3 text-[11px] font-bold text-knole-ink uppercase tracking-[0.25em] transition-all focus:outline-none"
+        aria-label={`Explore details for ${name}`}
       >
-        <span class="relative pb-1 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-orchard-terracotta after:origin-right after:scale-x-0 group-hover/btn:after:scale-x-100 group-hover/btn:after:origin-left after:transition-transform after:duration-500">
+        <span class="relative pb-1 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-orchard-terracotta after:origin-right after:scale-x-0 group-hover/btn:after:scale-x-100 group-hover/btn:after:origin-left group-focus/btn:after:scale-x-100 group-focus/btn:after:origin-left after:transition-transform after:duration-500">
           Explore Event
         </span>
         <svg

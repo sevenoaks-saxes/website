@@ -23,6 +23,20 @@ const {
     <meta name="generator" content={Astro.generator} />
     <title>{title} | Sevenoaks Saxes</title>
     <meta name="description" content={description} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={`${title} | Sevenoaks Saxes`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL('/images/hero.png', Astro.url)} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={`${title} | Sevenoaks Saxes`} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL('/images/hero.png', Astro.url)} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -30,7 +44,7 @@ const {
       rel="stylesheet"
     />
   </head>
-  <body class="min-h-screen flex flex-col bg-white">
+  <body class="min-h-screen flex flex-col bg-white selection:bg-wealden-green/10 selection:text-wealden-green-dark">
     <Navigation />
     <main class="flex-grow">
       <slot />

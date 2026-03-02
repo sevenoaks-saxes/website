@@ -36,7 +36,7 @@ This website is built with [Astro 5](https://astro.build/), styled with [Tailwin
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) (v20 or later recommended)
+- [Node.js](https://nodejs.org/) (v20.18.1 or later recommended)
 - `npm` (comes with Node.js)
 
 ### Local Setup

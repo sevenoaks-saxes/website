@@ -65,7 +65,7 @@ Every event file **must** have these settings at the top:
 ---
 name: 'Spring Concert'
 description: 'An evening of jazz and classical favorites.'
-date: 2024-05-15
+date: 2025-05-15
 time: '19:30'
 location: 'Sevenoaks Community Centre'
 type: 'concert' # Must be one of: concert, rehearsal, play day, or other

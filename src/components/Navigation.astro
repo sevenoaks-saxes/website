@@ -37,24 +37,27 @@ import Logo from './Logo.astro';
     </div>
 
     <!-- Desktop Navigation -->
-    <nav class="hidden md:flex md:items-center md:space-x-12 h-full">
+    <nav class="hidden md:flex md:items-center md:space-x-10 lg:space-x-12 h-full" aria-label="Main navigation">
       {
         navLinks.map((link) => (
-          <div class="relative group h-full flex items-center">
+          <div class="relative group h-full flex items-center dropdown-container">
             {link.dropdown ? (
               <div class="flex items-center space-x-1.5 cursor-default h-full">
                 <a
                   href={link.href}
-                  class="text-base font-semibold text-knole-ink/80 hover:text-wealden-green transition-all duration-300 tracking-wide relative after:absolute after:bottom-[-4px] after:left-0 after:h-0.5 after:w-0 group-hover:after:w-full after:bg-wealden-green after:transition-all after:duration-300"
+                  class="text-base font-semibold text-knole-ink/80 hover:text-wealden-green transition-all duration-300 tracking-wide relative after:absolute after:bottom-[-4px] after:left-0 after:h-0.5 after:w-0 group-hover:after:w-full group-focus-within:after:w-full after:bg-wealden-green after:transition-all after:duration-300"
+                  aria-haspopup="true"
+                  aria-expanded="false"
                 >
                   {link.name}
                 </a>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 text-knole-ink/60 group-hover:text-wealden-green transition-transform duration-300 group-hover:rotate-180"
+                  class="h-4 w-4 text-knole-ink/60 group-hover:text-wealden-green transition-transform duration-300 group-hover:rotate-180 group-focus-within:rotate-180"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
+                  aria-hidden="true"
                 >
                   <path
                     stroke-linecap="round"
@@ -65,13 +68,14 @@ import Logo from './Logo.astro';
                 </svg>
 
                 {/* Dropdown Menu */}
-                <div class="absolute left-1/2 -translate-x-1/2 top-full w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-out scale-95 group-hover:scale-100 origin-top z-50">
+                <div class="absolute left-1/2 -translate-x-1/2 top-full w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-300 ease-out scale-95 group-hover:scale-100 group-focus-within:scale-100 origin-top z-50">
                   <div class="pt-4">
-                    <div class="bg-knole-ink p-3 rounded-2xl shadow-2xl space-y-1">
+                    <div class="bg-knole-ink p-3 rounded-2xl shadow-2xl space-y-1" role="menu">
                       {link.dropdown.map((sublink) => (
                         <a
                           href={sublink.href}
-                          class="block px-4 py-3 text-[15px] font-medium text-downs-chalk/80 hover:text-white hover:bg-white/10 rounded-xl transition-all duration-200"
+                          class="block px-4 py-3 text-[15px] font-medium text-downs-chalk/80 hover:text-white hover:bg-white/10 focus:text-white focus:bg-white/10 focus:outline-none rounded-xl transition-all duration-200"
+                          role="menuitem"
                         >
                           {sublink.name}
                         </a>
@@ -182,6 +186,35 @@ import Logo from './Logo.astro';
       mobileMenu.classList.toggle('hidden');
       openIcon.classList.toggle('hidden');
       closeIcon.classList.toggle('hidden');
+
+      if (!expanded) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
     });
   }
+
+  // Dropdown accessibility
+  const dropdownContainers = document.querySelectorAll('.dropdown-container');
+  dropdownContainers.forEach(container => {
+    const trigger = container.querySelector('a[aria-haspopup="true"]');
+    if (trigger) {
+      container.addEventListener('focusin', () => {
+        trigger.setAttribute('aria-expanded', 'true');
+      });
+      container.addEventListener('focusout', (e) => {
+        if (!container.contains((e as FocusEvent).relatedTarget as Node)) {
+          trigger.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+  });
+
+  // Close mobile menu on escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileMenu && !mobileMenu.classList.contains('hidden')) {
+      mobileMenuButton?.click();
+    }
+  });
 </script>
