@@ -1,7 +1,7 @@
 ---
 name: Contemporary Saxophone Play Day
 description: A full day of immersive music-making exploring the modern sound of the saxophone choir.
-date: 2026-06-21
+date: 2026-12-21
 time: '10:00 - 16:30'
 location: The Drive Methodist Church, Sevenoaks
 type: play day

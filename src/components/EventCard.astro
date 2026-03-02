@@ -1,6 +1,8 @@
 ---
-const { event } = Astro.props;
+const { event, variant = 'full' } = Astro.props;
 const { name, date, time, location, type, description } = event.data;
+
+const isSlim = variant === 'slim';
 
 const formattedDate = new Date(date).toLocaleDateString('en-GB', {
   weekday: 'long',
@@ -21,22 +23,31 @@ const typeColors = {
 ---
 
 <div
-  class="flex flex-col overflow-hidden bg-white border border-knole-ink/5 transition-all duration-500 hover:shadow-2xl hover:shadow-knole-ink/5 hover:-translate-y-2 group rounded-3xl"
+  class:list={[
+    'flex flex-col overflow-hidden bg-white border border-knole-ink/5 transition-all duration-500 hover:shadow-2xl hover:shadow-knole-ink/5 hover:-translate-y-2 group rounded-3xl',
+    isSlim ? 'h-full' : '',
+  ]}
 >
-  <div class="p-10">
-    <div class="flex items-center justify-between mb-10">
+  <div class:list={[isSlim ? 'p-8' : 'p-10']}>
+    <div
+      class:list={['flex items-center justify-between', isSlim ? 'mb-6' : 'mb-10']}
+    >
       <span
-        class={`inline-flex items-center px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.25em] rounded-full border ${typeColors[type] || typeColors.other}`}
+        class:list={[
+          'inline-flex items-center px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.25em] rounded-full border',
+          typeColors[type] || typeColors.other,
+        ]}
       >
         {type}
       </span>
       <span
         class="text-xs font-bold text-knole-ink/70 uppercase tracking-[0.2em]"
-        >{time}</span
       >
+        {time}
+      </span>
     </div>
 
-    <div class="space-y-6">
+    <div class:list={[isSlim ? 'space-y-4' : 'space-y-6']}>
       <p
         class="text-xs font-bold text-wealden-green uppercase tracking-[0.25em]"
       >
@@ -44,48 +55,54 @@ const typeColors = {
       </p>
 
       <h3
-        class="text-3xl md:text-4xl font-serif font-normal text-knole-ink group-hover:text-orchard-terracotta transition-colors duration-500 leading-[1.2]"
+        class:list={[
+          'font-serif font-normal text-knole-ink group-hover:text-orchard-terracotta transition-colors duration-500 leading-[1.2]',
+          isSlim ? 'text-2xl md:text-3xl' : 'text-3xl md:text-4xl',
+        ]}
       >
         <a href={`/events/${event.id}`} class="block">
           {name}
         </a>
       </h3>
 
-      <p
-        class="text-base text-knole-ink/70 font-medium leading-relaxed italic border-l-2 border-downs-chalk pl-4"
-      >
-        {location}
-      </p>
+      {!isSlim && (
+        <>
+          <p class="text-base text-knole-ink/70 font-medium leading-relaxed italic border-l-2 border-downs-chalk pl-4">
+            {location}
+          </p>
 
-      <p class="text-knole-ink/80 line-clamp-3 leading-relaxed text-lg">
-        {description}
-      </p>
+          <p class="text-knole-ink/80 line-clamp-3 leading-relaxed text-lg">
+            {description}
+          </p>
+        </>
+      )}
     </div>
   </div>
 
-  <div class="px-10 pb-10 mt-auto">
-    <a
-      href={`/events/${event.id}`}
-      class="group/btn inline-flex items-center gap-3 text-[11px] font-bold text-knole-ink uppercase tracking-[0.25em] transition-all"
-    >
-      <span
-        class="relative pb-1 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-orchard-terracotta after:origin-right after:scale-x-0 group-hover/btn:after:scale-x-100 group-hover/btn:after:origin-left after:transition-transform after:duration-500"
+  {!isSlim && (
+    <div class="px-10 pb-10 mt-auto">
+      <a
+        href={`/events/${event.id}`}
+        class="group/btn inline-flex items-center gap-3 text-[11px] font-bold text-knole-ink uppercase tracking-[0.25em] transition-all"
       >
-        Explore Event
-      </span>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="h-4 w-4 text-orchard-terracotta transition-transform duration-500 group-hover/btn:translate-x-2"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2.5"
-          d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-      </svg>
-    </a>
-  </div>
+        <span class="relative pb-1 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-orchard-terracotta after:origin-right after:scale-x-0 group-hover/btn:after:scale-x-100 group-hover/btn:after:origin-left after:transition-transform after:duration-500">
+          Explore Event
+        </span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-4 w-4 text-orchard-terracotta transition-transform duration-500 group-hover/btn:translate-x-2"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2.5"
+            d="M17 8l4 4m0 0l-4 4m4-4H3"
+          />
+        </svg>
+      </a>
+    </div>
+  )}
 </div>

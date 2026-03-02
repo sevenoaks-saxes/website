@@ -11,8 +11,11 @@ if (!entry) {
   return Astro.redirect('/404');
 }
 
+const today = new Date();
+today.setHours(0, 0, 0, 0);
+
 const upcomingEvents = events
-  .filter((event) => new Date(event.data.date) >= new Date())
+  .filter((event) => new Date(event.data.date) >= today)
   .sort(
     (a, b) => new Date(a.data.date).getTime() - new Date(b.data.date).getTime()
   )
@@ -55,12 +58,16 @@ const { Content } = await render(entry);
             </div>
             <a
               href="/events"
-              class="group inline-flex items-center gap-3 text-lg font-bold text-wealden-green uppercase tracking-[0.2em] transition-all"
+              class="group inline-flex items-center gap-2 text-xl font-serif text-wealden-green transition-all"
             >
-              View All Events
+              <span
+                class="relative pb-1 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-wealden-green after:origin-right after:scale-x-0 group-hover:after:scale-x-100 group-hover:after:origin-left after:transition-transform after:duration-500"
+              >
+                View all events
+              </span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 transition-transform group-hover:translate-x-2"
+                class="h-5 w-5 transition-transform group-hover:translate-x-1"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -77,7 +84,7 @@ const { Content } = await render(entry);
 
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {upcomingEvents.map((event) => (
-              <EventCard event={event} />
+              <EventCard event={event} variant="slim" />
             ))}
           </div>
         </div>
