@@ -1,20 +1,4 @@
 /*
-  Security Headers for Sevenoaks Saxes
-*/
-
-/* Apply to all paths */
-/* We don't have a content-security-policy-report-only header here as it's better to start with standard headers */
-/* Cloudflare automatically handles some of these if enabled in the dashboard, but explicitly setting them is safer */
-
-/*
-  CSP Note: This is a relatively strict CSP.
-  - Allows scripts from self and Google Fonts.
-  - Allows styles from self and Google Fonts.
-  - Allows images from self and data: (for the noise texture).
-  - Allows connect-src for standard analytics if added later.
-*/
-
-/
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
