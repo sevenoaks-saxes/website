@@ -110,11 +110,6 @@ html {
   @apply py-24 md:py-32;
 }
 
-@utility glass {
-  @apply bg-white/70 border border-white/20;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
 
 @utility text-gradient {
   @apply bg-clip-text text-transparent bg-gradient-to-r from-knole-ink via-bluebell-haze to-wealden-green;
