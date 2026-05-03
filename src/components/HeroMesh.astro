@@ -24,7 +24,7 @@ const {
   data-seed={seed}
   aria-hidden="true"
 >
-  <canvas class="hero-mesh-canvas w-full h-full"></canvas>
+  <canvas class="hero-mesh-canvas w-full h-full blur-[100px]"></canvas>
   <div class="hero-mesh-fallback absolute inset-0 bg-gradient-to-br from-wealden-green/5 via-bluebell-haze/5 to-orchard-terracotta/5 hidden"></div>
   {
     grain && (
@@ -123,7 +123,6 @@ const {
     animate() {
       this.ctx.clearRect(0, 0, this.width, this.height);
       this.ctx.globalAlpha = this.opacity;
-      this.ctx.filter = 'blur(100px)';
 
       this.blobs.forEach((blob) => {
         blob.x += blob.vx;
